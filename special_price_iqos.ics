@@ -1,0 +1,14 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//IQOS//Special Price Invite//BG
+BEGIN:VEVENT
+UID:specialna-cena-ot-iqos-20250930@iqos.com
+DTSTAMP:20250401T090000Z
+DTSTART:20250930T080000Z
+DTEND:20250930T180000Z
+SUMMARY:Специална цена на iqos.com!
+DESCRIPTION:🔔 Специална оферта: IQOS ILUMA – Лазурносиньо, Червен залез и Зелен мъх\n\n🗓 Валидна на 30.09 от 08:00 ч. до 18:00 ч.\n\n💳 Офертата важи само за при онлайн поръчка.
+LOCATION:iqos.com
+STATUS:CONFIRMED
+END:VEVENT
+END:VCALENDAR
