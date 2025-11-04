@@ -1,0 +1,14 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//IQOS//SELETTI LIMITED EDITION//BG
+BEGIN:VEVENT
+UID:limitirana-seria-ot-iqos-20250423@iqos.com
+DTSTAMP:20250401T090000Z
+DTSTART:20250512T190000Z
+DTEND:20250513T050000Z
+SUMMARY:Отвъд очевидното. Готов ли си? 
+DESCRIPTION:🔔 IQOS ILUMA i SELETTI LIMITED EDITION скоро ще бъде тук! \n\nЗапази датата в календара и следи на iqos.com! \n\nГотов ли си?  
+LOCATION:iqos.com
+STATUS:CONFIRMED
+END:VEVENT
+END:VCALENDAR
