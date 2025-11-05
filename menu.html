@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>IQOS Lounge — Menu</title>
+  <style>
+    :root{
+      --bg:#0f1720; /* deep slate */
+      --panel:#0b1220;
+      --accent:#16a085; /* teal */
+      --muted:#9aa5ad;
+      --glass: rgba(255,255,255,0.04);
+      --glass-2: rgba(255,255,255,0.02);
+      --card-radius:18px;
+      --maxw:980px;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+    }
+
+    html,body{height:100%;background:linear-gradient(180deg,var(--bg),#081017);margin:0;color:#e6f0ef}
+    .wrap{max-width:var(--maxw);margin:40px auto;padding:30px;background:linear-gradient(180deg,var(--panel), rgba(255,255,255,0.01));border-radius:24px;box-shadow:0 10px 40px rgba(2,6,23,0.8);display:grid;grid-template-columns:1fr 360px;gap:28px}
+
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;gap:14px;align-items:center}
+    .device-sil{width:56px;height:56px;border-radius:12px;background:linear-gradient(180deg,#0b1b1f,#062028);display:flex;align-items:center;justify-content:center;box-shadow:inset 0 1px 0 rgba(255,255,255,0.03),0 6px 18px rgba(0,0,0,0.6)}
+    .device-sil svg{opacity:0.95}
+    h1{font-size:20px;margin:0;letter-spacing:0.2px}
+    p.tag{margin:0;color:var(--muted);font-size:13px}
+
+    .menu{padding:6px 6px 18px;border-radius:14px;background:linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));box-shadow:inset 0 1px 0 rgba(255,255,255,0.02)}
+    .section{padding:18px;border-radius:12px;background:linear-gradient(180deg, var(--glass), transparent);margin-bottom:12px}
+    .section h2{margin:0 0 12px 0;font-size:15px}
+    .item{display:flex;justify-content:space-between;align-items:flex-start;padding:8px 0;border-top:1px dashed rgba(255,255,255,0.02)}
+    .item:first-of-type{border-top:0}
+    .meta{color:var(--muted);font-size:13px}
+    .price{font-weight:700;color:var(--accent)}
+
+    /* right panel */
+    .side{padding:18px;border-radius:16px;background:linear-gradient(180deg,var(--glass-2),transparent);height:100%;display:flex;flex-direction:column;gap:14px}
+    .age{font-size:12px;color:#ffd3c0;background:linear-gradient(90deg,#28120b,#3b2218);padding:8px;border-radius:10px}
+    .cta{margin-top:auto;padding:12px;border-radius:12px;background:linear-gradient(90deg, rgba(22,160,133,0.12), rgba(22,160,133,0.06));border:1px solid rgba(22,160,133,0.08);text-align:center}
+    .cta button{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:8px 14px;border-radius:10px;color:var(--accent);font-weight:700;cursor:pointer}
+
+    /* subtle device strip */
+    .device-visual{height:120px;border-radius:12px;background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));display:flex;align-items:center;justify-content:center}
+    .device-visual .outline{width:70%;height:56px;border-radius:999px;background:linear-gradient(90deg,#071a1d,#062b2a);display:flex;align-items:center;justify-content:center;padding:12px;box-shadow:0 6px 16px rgba(0,0,0,0.6)}
+    .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px rgba(22,160,133,0.5)}
+
+    /* responsive */
+    @media (max-width:980px){.wrap{grid-template-columns:1fr;max-width:680px;padding:18px} .side{order:2}}
+
+    /* decorative glow */
+    .brand:after{content:"";position:absolute;width:260px;height:260px;margin-left:-120px;margin-top:-120px;background:radial-gradient(circle at 30% 30%, rgba(22,160,133,0.06), transparent 20%);filter:blur(12px);pointer-events:none;z-index:0}
+
+    /* tasteful hover */
+    .item:hover{transform:translateY(-2px);transition:transform .18s}
+
+    footer{font-size:12px;color:var(--muted);margin-top:10px;text-align:center}
+
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <main>
+      <header>
+        <div class="brand">
+          <div class="device-sil" aria-hidden="true">
+            <svg width="34" height="34" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="6" y="3" width="12" height="18" rx="4" stroke="rgba(255,255,255,0.06)" stroke-width="1.2"/>
+              <rect x="10" y="7" width="4" height="2" rx="1" fill="rgba(255,255,255,0.02)"/>
+            </svg>
+          </div>
+          <div style="position:relative;z-index:1">
+            <h1>IQOS Lounge</h1>
+            <p class="tag">A tasteful pairing of beverages & light bites — adults only (18+)</p>
+          </div>
+        </div>
+        <div style="text-align:right">
+          <div style="font-size:12px;color:var(--muted)">Open • 11:00 — 23:00</div>
+          <div style="font-size:13px;color:var(--muted);margin-top:6px">Quiet lounge • Device charging available</div>
+        </div>
+      </header>
+
+      <div class="menu" style="margin-top:18px">
+        <section class="section">
+          <h2>Signature Drinks</h2>
+          <div class="item">
+            <div>
+              <div style="font-weight:700">Heatwave Espresso</div>
+              <div class="meta">Intense single shot, smoked caramel finish</div>
+            </div>
+            <div class="price">€2.80</div>
+          </div>
+
+          <div class="item">
+            <div>
+              <div style="font-weight:700">Mint Infusion Cold Brew</div>
+              <div class="meta">Slow-steeped cold brew with menthol notes</div>
+            </div>
+            <div class="price">€3.50</div>
+          </div>
+
+          <div class="item">
+            <div>
+              <div style="font-weight:700">Velvet Cocoa</div>
+              <div class="meta">Rich dark chocolate with a whisper of spice</div>
+            </div>
+            <div class="price">€3.20</div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2>Light Bites</h2>
+          <div class="item">
+            <div>
+              <div style="font-weight:700">Smoked Salmon Crostini</div>
+              <div class="meta">Lemon crème fraîche & dill</div>
+            </div>
+            <div class="price">€5.50</div>
+          </div>
+
+          <div class="item">
+            <div>
+              <div style="font-weight:700">Charred Veg Platter</div>
+              <div class="meta">Seasonal veg, whipped feta, za'atar</div>
+            </div>
+            <div class="price">€6.00</div>
+          </div>
+
+          <div class="item">
+            <div>
+              <div style="font-weight:700">Truffle Fries</div>
+              <div class="meta">Crisp fries, parmesan, black truffle oil</div>
+            </div>
+            <div class="price">€4.50</div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2>Non-Caffeinated</h2>
+          <div class="item">
+            <div>
+              <div style="font-weight:700">Iced Hibiscus Spritz</div>
+              <div class="meta">Floral, tangy, lightly sweetened</div>
+            </div>
+            <div class="price">€3.00</div>
+          </div>
+
+          <div class="item">
+            <div>
+              <div style="font-weight:700">Sparkling Mineral</div>
+              <div class="meta">Still or sparkling — ask your server</div>
+            </div>
+            <div class="price">€2.20</div>
+          </div>
+        </section>
+
+      </div>
+
+      <footer>
+        Please note: This lounge is intended for adults only. Use of tobacco or nicotine products is strictly for persons over the legal age. Staff may ask for ID.
+      </footer>
+    </main>
+
+    <aside class="side" aria-label="Info & visuals">
+      <div class="device-visual">
+        <div class="outline">
+          <div style="display:flex;align-items:center;gap:12px">
+            <div style="width:12px;height:36px;border-radius:6px;background:linear-gradient(180deg,#062b2a,#0b1f20);box-shadow:inset 0 1px 0 rgba(255,255,255,0.02)"></div>
+            <div style="text-align:left">
+              <div style="font-weight:700">Device Care</div>
+              <div class="meta">Complimentary charging & cleaning station</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="age">Age verification required • Adults only (18+)</div>
+
+      <div style="padding:12px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);">
+        <strong style="display:block;margin-bottom:6px">Pairing Suggestion</strong>
+        <div class="meta">Try the Mint Infusion Cold Brew with the Charred Veg Platter — the brightness balances menthol notes.</div>
+      </div>
+
+      <div class="cta">
+        <div style="font-size:13px;margin-bottom:8px">Reserve a cozy table</div>
+        <button onclick="alert('To reserve, please call +000 000 000 or visit the reception.')">Reserve</button>
+      </div>
+
+    </aside>
+  </div>
+</body>
+</html>
