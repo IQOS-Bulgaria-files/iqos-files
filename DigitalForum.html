@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>2-Day Agenda</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-overlay: rgba(255, 255, 255, 0.132);
+            --accent: #1f2d3d;
+            --muted: #5b6b7a;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.4;
+            background-image: url('https://raw.githubusercontent.com/IQOS-Bulgaria-files/iqos-files/refs/heads/main/IQOS_DigitalConference_2025.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #1f2d3d;
+            padding: 60px;
+        }
+
+        .agenda-container {
+            background: var(--bg-overlay);
+            backdrop-filter: blur(6px);
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-top: 24px;
+            font-size: 1.2rem;
+            color: var(--accent);
+            border-bottom: 2px solid var(--accent);
+            display: inline-block;
+            padding-bottom: 4px;
+        }
+
+        .session {
+            display: flex;
+            flex-direction: column;
+            background: white;
+            border-radius: 12px;
+            padding: 12px 16px;
+            margin-top: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .time {
+            font-weight: 600;
+            color: var(--accent);
+            font-size: 0.95rem;
+            margin-bottom: 4px;
+        }
+
+        .topic {
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+
+        .presenter {
+            font-size: 0.9rem;
+            color: var(--muted);
+        }
+
+        @media (min-width: 700px) {
+            .session {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .time,
+            .topic,
+            .presenter {
+                margin-bottom: 0;
+            }
+
+            .time {
+                flex: 0 0 140px;
+            }
+
+            .topic {
+                flex: 1;
+                padding: 0 12px;
+            }
+
+            .presenter {
+                flex: 0 0 220px;
+                text-align: right;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="agenda-container">
+        <h1>2‑Day Digital & Markets Agenda</h1>
+
+        <h2>DAY 1</h2>
+        <div class="session">
+            <div class="time">09:30 – 10:00</div>
+            <div class="topic">Gathering & Welcome Coffee</div>
+            <div class="presenter">All</div>
+        </div>
+        <div class="session">
+            <div class="time">10:00 – 10:45</div>
+            <div class="topic">Hosting Market – Opening</div>
+            <div class="presenter">Denys Strobykin & Polina Ninova</div>
+        </div>
+        <div class="session">
+            <div class="time">10:45 – 11:30</div>
+            <div class="topic">Digital Strategy Europe</div>
+            <div class="presenter">Utku Tari</div>
+        </div>
+        <div class="session">
+            <div class="time">11:30 – 11:45</div>
+            <div class="topic">Coffee Break</div>
+            <div class="presenter">All</div>
+        </div>
+        <div class="session">
+            <div class="time">11:45 – 12:30</div>
+            <div class="topic">Global Digital Engagement Strategy</div>
+            <div class="presenter">Fabian Gonzalez</div>
+        </div>
+        <div class="session">
+            <div class="time">12:30 – 14:00</div>
+            <div class="topic">Lunch</div>
+            <div class="presenter">All</div>
+        </div>
+        <div class="session">
+            <div class="time">14:00 – 15:30</div>
+            <div class="topic">Markets Presentations (PL / CZ-SK / GR / HU)</div>
+            <div class="presenter">Markets</div>
+        </div>
+        <div class="session">
+            <div class="time">14:00 – 14:30</div>
+            <div class="topic">M‑C in Club</div>
+            <div class="presenter">Kamil Stankiewicz</div>
+        </div>
+        <div class="session">
+            <div class="time">14:30 – 15:00</div>
+            <div class="topic">Leveraging personalization to increase conversion rate on e‑com</div>
+            <div class="presenter">Mihaela Leahu & Denisa Maslejova</div>
+        </div>
+        <div class="session">
+            <div class="time">15:00 – 15:30</div>
+            <div class="topic">Beyond Cart: Elevating Consumer Experience in Digital Commerce</div>
+            <div class="presenter">Georgios-Daniil Riskas</div>
+        </div>
+        <div class="session">
+            <div class="time">15:30 – 16:00</div>
+            <div class="topic">Coffee Break</div>
+            <div class="presenter">All</div>
+        </div>
+        <div class="session">
+            <div class="time">16:00 – 16:30</div>
+            <div class="topic">Digital Engagement in Dark Market</div>
+            <div class="presenter">Emese Nemeth</div>
+        </div>
+        <div class="session">
+            <div class="time">16:30 – 19:30</div>
+            <div class="topic">Field Visit (Sales Experts / XO Park / Partners)</div>
+            <div class="presenter">Guests & Organizers
+</div>
+        </div>
+        <div class="session">
+            <div class="time">19:30 – 20:30</div>
+            <div class="topic">Leisure</div>
+            <div class="presenter">All</div>
+        </div>
+        <div class="session">
+            <div class="time">20:30 – 22:30</div>
+            <div class="topic">Dinner (Cosmos)</div>
+            <div class="presenter">Guests + RSVP (BG)</div>
+        </div>
+        <div class="session">
+            <div class="time">22:30</div>
+            <div class="topic">End of day</div>
+            <div class="presenter">All</div>
+        </div>
+
+        <h2>DAY 2</h2>
+        <div class="session">
+            <div class="time">09:30 – 10:00</div>
+            <div class="topic">Gathering & Welcome Coffee</div>
+            <div class="presenter">All</div>
+        </div>
+        <div class="session">
+            <div class="time">10:00 – 11:30</div>
+            <div class="topic">Markets Presentations (BG / CY / SRB)</div>
+            <div class="presenter">Markets</div>
+        </div>
+        <div class="session">
+            <div class="time">10:00 – 10:30</div>
+            <div class="topic">IQOS Club & Flash Sales @ e‑Com</div>
+            <div class="presenter">Dimitar Stoyanov & Boyan Marinov</div>
+        </div>
+        <div class="session">
+            <div class="time">10:30 – 11:00</div>
+            <div class="topic">CRM Engagement Tactics</div>
+            <div class="presenter">Phivos Phivou</div>
+        </div>
+        <div class="session">
+            <div class="time">11:00 – 11:30</div>
+            <div class="topic">Competitive e‑com price & Paid Media Partnerships</div>
+            <div class="presenter">Sasa Toroman</div>
+        </div>
+        <div class="session">
+            <div class="time">11:30 – 11:45</div>
+            <div class="topic">Coffee Break</div>
+            <div class="presenter">All</div>
+        </div>
+        <div class="session">
+            <div class="time">11:45 – 12:30</div>
+            <div class="topic">Industry Trends and Innovations</div>
+            <div class="presenter">Bylith</div>
+        </div>
+        <div class="session">
+            <div class="time">12:30 – 13:00</div>
+            <div class="topic">Closing Remarks</div>
+            <div class="presenter">All</div>
+        </div>
+        <div class="session">
+            <div class="time">13:00 – 14:00</div>
+            <div class="topic">Lunch</div>
+            <div class="presenter">All</div>
+        </div>
+        <div class="session">
+            <div class="time">14:00</div>
+            <div class="topic">Departure</div>
+            <div class="presenter">All</div>
+        </div>
+    </div>
+</body>
+
+</html>
