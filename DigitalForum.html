@@ -8,120 +8,115 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-<style>
-:root {
-  --bg-overlay: rgba(255, 255, 255, 0.18);
-  --accent: #1f2d3d;
-  --muted: #5b6b7a;
-}
+    <style>
+        :root {
+            --bg-overlay: rgba(255, 255, 255, 0.132);
+            --accent: #1f2d3d;
+            --muted: #5b6b7a;
+        }
 
-/* Reset & Base */
-* { box-sizing: border-box; margin: 0; padding: 0; }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-body {
-  font-family: 'Inter', sans-serif;
-  line-height: 1.4;
-  color: #1f2d3d;
-  padding: 10px 30px;
-  overflow-x: hidden;
-  position: relative;
-  min-height: 100vh;
-}
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.4;
+            background-image: url('https://raw.githubusercontent.com/IQOS-Bulgaria-files/iqos-files/refs/heads/main/IQOS_DigitalConference_2025.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #1f2d3d;
+            padding: 10px 30px;
+        }
 
-/* Parallax Background Layer */
-.parallax-bg {
-  position: fixed;
-  inset: 0;
-  background: url('https://raw.githubusercontent.com/IQOS-Bulgaria-files/iqos-files/refs/heads/main/IQOS_DigitalConference_2025.png')
-    center / cover no-repeat;
-  transform: translateZ(0);
-  will-change: transform;
-  z-index: -2;
-}
+        .agenda-container {
+            background: var(--bg-overlay);
+            backdrop-filter: blur(2px);
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.289);
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
 
-.parallax-bg::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    rgba(255,255,255,0.1),
-    rgba(255,255,255,0.25)
-  );
-  mix-blend-mode: overlay;
-}
+        h1 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-align: center;
+        }
 
-/* Content Container */
-.agenda-container {
-  background: var(--bg-overlay);
-  backdrop-filter: blur(8px) saturate(150%);
-  border-radius: 18px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 20px;
-  position: relative;
-  z-index: 1;
-}
+        h2 {
+            margin-top: 24px;
+            font-size: 1.2rem;
+            color: var(--accent);
+            border-bottom: 2px solid var(--accent);
+            display: inline-block;
+            padding-bottom: 4px;
+        }
 
-/* Headings */
-h1 {
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin-bottom: 10px;
-  text-align: center;
-}
-h2 {
-  margin-top: 24px;
-  font-size: 1.2rem;
-  color: var(--accent);
-  border-bottom: 2px solid var(--accent);
-  display: inline-block;
-  padding-bottom: 4px;
-}
+        .session {
+            display: flex;
+            flex-direction: column;
+            background: rgba(255, 255, 255, 0.768);
+            border-radius: 12px;
+            padding: 12px 16px;
+            margin-top: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
 
-/* Sessions */
-.session {
-  display: flex;
-  flex-direction: column;
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 12px;
-  padding: 12px 16px;
-  margin-top: 10px;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-}
-.time {
-  font-weight: 600;
-  color: var(--accent);
-  font-size: 0.95rem;
-  margin-bottom: 4px;
-}
-.topic {
-  font-size: 1rem;
-  font-weight: 500;
-  margin-bottom: 4px;
-}
-.presenter {
-  font-size: 0.9rem;
-  color: var(--muted);
-}
+        .time {
+            font-weight: 600;
+            color: var(--accent);
+            font-size: 0.95rem;
+            margin-bottom: 4px;
+        }
 
-/* Desktop Layout */
-@media (min-width: 700px) {
-  .session {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .time { flex: 0 0 140px; }
-  .topic { flex: 1; padding: 0 12px; }
-  .presenter { flex: 0 0 220px; text-align: right; }
-}
-</style>
+        .topic {
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+
+        .presenter {
+            font-size: 0.9rem;
+            color: var(--muted);
+        }
+
+        @media (min-width: 700px) {
+            .session {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .time,
+            .topic,
+            .presenter {
+                margin-bottom: 0;
+            }
+
+            .time {
+                flex: 0 0 140px;
+            }
+
+            .topic {
+                flex: 1;
+                padding: 0 12px;
+            }
+
+            .presenter {
+                flex: 0 0 220px;
+                text-align: right;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <div class="parallax-bg"></div>
-
     <div class="agenda-container">
         <h1>Digital Forum Agenda</h1>
 
