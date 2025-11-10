@@ -15,33 +15,30 @@
   --muted: #5b6b7a;
 }
 
-/* Global reset */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-/* Lock body, move scroll to <main> */
-html, body {
-  height: 100%;
-  overflow: hidden; /* stop browser viewport scroll from causing vh changes */
+body {
   font-family: 'Inter', sans-serif;
   line-height: 1.4;
   color: #1f2d3d;
-}
+  padding: 10px 30px;
+  position: relative;
+  overflow-x: hidden;
 
-/* Fixed background wrapper */
-.bg-wrap {
-  position: fixed;
-  inset: 0;
-  overflow: hidden;
-  z-index: -1;
 }
 
 .bg-fixed {
-  position: absolute;
-  inset: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100%; /* don’t depend on vh at all */
+  height: 100%;
+  z-index: -1;
   background-image: url('https://raw.githubusercontent.com/IQOS-Bulgaria-files/iqos-files/refs/heads/main/IQOS_DigitalConference_2025.png');
   background-size: cover;
   background-position: left center;
@@ -58,17 +55,6 @@ html, body {
   background: rgba(255, 255, 255, 0.008);
 }
 
-/* Scrolling content container */
-main {
-  position: relative;
-  overflow-y: auto; /* internal scroll, not window scroll */
-  -webkit-overflow-scrolling: touch;
-  height: 100%;
-  padding: 10px 30px;
-  z-index: 1;
-}
-
-/* Content styles */
 .agenda-container {
   background: var(--bg-overlay);
   backdrop-filter: blur(2px);
@@ -123,7 +109,6 @@ h2 {
   color: var(--muted);
 }
 
-/* Desktop layout tweaks */
 @media (min-width: 700px) {
   .session {
     flex-direction: row;
@@ -155,9 +140,7 @@ h2 {
 </head>
 
 <body>
-     <div class="bg-wrap">
-        <div class="bg-fixed"></div>
-      </div>
+    <div class="bg-fixed"></div>
     <div class="agenda-container">
         <h1>Digital Conference Agenda</h1>
 
@@ -297,6 +280,17 @@ h2 {
         </div>
     </div>
 
+ <script>
+
+    function lockBackgroundHeight() {
+      const h = window.innerHeight;
+      document.querySelector('.bg-fixed').style.height = h + 'px';
+    }
+    lockBackgroundHeight();
+     
+    window.addEventListener('orientationchange', lockBackgroundHeight);
+  </script>
+    
 </body>
 
 </html>
