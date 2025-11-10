@@ -13,6 +13,7 @@
   --bg-overlay: rgba(255, 255, 255, 0.06);
   --accent: #1f2d3d;
   --muted: #5b6b7a;
+  --viewport-height: 100vh;
 }
 
 * {
@@ -21,9 +22,11 @@
   padding: 0;
 }
 
-html {
-  height: 100%;
-  overflow: hidden;
+html, body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 }
 
 body {
@@ -32,24 +35,21 @@ body {
   color: #1f2d3d;
   padding: 10px 30px;
   position: relative;
-  height: 100%;
-  overflow-y: auto;
-  overflow-x: hidden;
-  -webkit-overflow-scrolling: touch;
+  min-height: 100vh;
 }
 
 .bg-fixed {
   position: fixed;
-  inset: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   z-index: -1;
   background-image: url('https://raw.githubusercontent.com/IQOS-Bulgaria-files/iqos-files/refs/heads/main/IQOS_DigitalConference_2025.png');
   background-size: cover;
   background-position: left center;
   background-repeat: no-repeat;
-  transform: translateZ(0);
-  will-change: transform;
-  height: 100%;
-  width: 100%;
+  height: var(--viewport-height);
 }
 
 .bg-fixed::after {
@@ -67,6 +67,8 @@ body {
   max-width: 900px;
   margin: 0 auto;
   padding: 20px;
+  position: relative;
+  z-index: 1;
 }
 
 h1 {
@@ -283,6 +285,29 @@ h2 {
             <div class="presenter">All</div>
         </div>
     </div>
+
+    <script>
+        // Track maximum viewport height to handle address bar hide/show
+        let maxHeight = window.innerHeight;
+        
+        function updateMaxHeight() {
+            const currentHeight = window.innerHeight;
+            if (currentHeight > maxHeight) {
+                maxHeight = currentHeight;
+                document.documentElement.style.setProperty('--viewport-height', maxHeight + 'px');
+            }
+        }
+        
+        // Set initial height
+        updateMaxHeight();
+        
+        // Update on resize events (including address bar changes)
+        window.addEventListener('resize', updateMaxHeight);
+        
+        // Also check after a short delay (for slower address bar animations)
+        setTimeout(updateMaxHeight, 500);
+        setTimeout(updateMaxHeight, 1000);
+    </script>
 </body>
 
 </html>
