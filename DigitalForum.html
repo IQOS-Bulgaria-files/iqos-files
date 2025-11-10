@@ -21,14 +21,21 @@
   padding: 0;
 }
 
+html {
+  height: 100%;
+  overflow: hidden;
+}
+
 body {
   font-family: 'Inter', sans-serif;
   line-height: 1.4;
   color: #1f2d3d;
   padding: 10px 30px;
   position: relative;
+  height: 100%;
+  overflow-y: auto;
   overflow-x: hidden;
-
+  -webkit-overflow-scrolling: touch;
 }
 
 .bg-fixed {
@@ -41,8 +48,8 @@ body {
   background-repeat: no-repeat;
   transform: translateZ(0);
   will-change: transform;
-  height: 100vh;
-  height: 100dvh;
+  height: 100%;
+  width: 100%;
 }
 
 .bg-fixed::after {
