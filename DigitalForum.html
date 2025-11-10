@@ -33,7 +33,11 @@ body {
 
 .bg-fixed {
   position: fixed;
-  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100%; /* don’t depend on vh at all */
+  height: 100%;
   z-index: -1;
   background-image: url('https://raw.githubusercontent.com/IQOS-Bulgaria-files/iqos-files/refs/heads/main/IQOS_DigitalConference_2025.png');
   background-size: cover;
@@ -41,8 +45,7 @@ body {
   background-repeat: no-repeat;
   transform: translateZ(0);
   will-change: transform;
-  height: 100vh;
-  height: 100dvh;
+  pointer-events: none;
 }
 
 .bg-fixed::after {
@@ -276,6 +279,18 @@ h2 {
             <div class="presenter">All</div>
         </div>
     </div>
+
+ <script>
+
+    function lockBackgroundHeight() {
+      const h = window.innerHeight;
+      document.querySelector('.bg-fixed').style.height = h + 'px';
+    }
+    lockBackgroundHeight();
+     
+    window.addEventListener('orientationchange', lockBackgroundHeight);
+  </script>
+    
 </body>
 
 </html>
