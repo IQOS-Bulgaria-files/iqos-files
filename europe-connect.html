@@ -8,416 +8,551 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-<style>
-:root {
-  --bg-overlay: rgba(255, 255, 255, 0.06);
-  --accent: #1f2d3d;
-  --muted: #5b6b7a;
-  --viewport-height: 100vh;
-}
+    <style>
+        :root {
+            --bg-overlay: rgba(255, 255, 255, 0.06);
+            --accent: #1f2d3d;
+            --muted: #5b6b7a;
+            --viewport-height: 100vh;
+        }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-html, body {
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-}
+        html,
+        body {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
 
-body {
-  font-family: 'Inter', sans-serif;
-  line-height: 1.4;
-  color: #1f2d3d;
-  padding: 10px 30px;
-  position: relative;
-  min-height: 100vh;
-}
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.4;
+            color: #1f2d3d;
+            padding: 10px 30px;
+            position: relative;
+            min-height: 100vh;
+        }
 
-.bg-fixed {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: -1;
-  background-image: url('https://raw.githubusercontent.com/IQOS-Bulgaria-files/iqos-files/refs/heads/main/IQOS_DigitalConference_2025.png');
-  background-size: cover;
-  background-position: left center;
-  background-repeat: no-repeat;
-  height: var(--viewport-height);
-}
+        .bg-fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+            background-image: url('https://raw.githubusercontent.com/IQOS-Bulgaria-files/iqos-files/refs/heads/main/europe-connect.png');
+            background-size: cover;
+            background-position: left center;
+            background-repeat: no-repeat;
+            height: var(--viewport-height);
+        }
 
-.bg-fixed::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(255, 255, 255, 0.008);
-}
+        .bg-fixed::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(255, 255, 255, 0.008);
+        }
 
-.agenda-container {
-  background: var(--bg-overlay);
-  backdrop-filter: blur(2px);
-  border-radius: 16px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.695);
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 20px;
-  position: relative;
-  z-index: 1;
-}
+        .agenda-container {
+            background: var(--bg-overlay);
+            backdrop-filter: blur(2px);
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.695);
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
 
-h1 {
-  font-size: 1.4rem;
-  font-weight: 700;
-  margin-bottom: 10px;
-  text-align: center;
-}
+        h1 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-align: center;
+        }
 
-h2 {
-  margin-top: 24px;
-  font-size: 1.2rem;
-  color: var(--accent);
-  border-bottom: 2px solid var(--accent);
-  display: inline-block;
-  padding-bottom: 4px;
-}
+        h2 {
+            margin-top: 24px;
+            font-size: 1.2rem;
+            color: var(--accent);
+            border-bottom: 2px solid var(--accent);
+            display: inline-block;
+            padding-bottom: 4px;
+        }
 
-.session {
-  display: flex;
-  flex-direction: column;
-  background: rgba(255, 255, 255, 0.75);
-  border-radius: 12px;
-  padding: 12px 16px;
-  margin-top: 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.10);
-}
+        .session {
+            display: flex;
+            flex-direction: column;
+            background: rgba(255, 255, 255, 0.75);
+            border-radius: 12px;
+            padding: 12px 16px;
+            margin-top: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.10);
+        }
 
-.time {
-  font-weight: 600;
-  color: var(--accent);
-  font-size: 0.95rem;
-  margin-bottom: 4px;
-}
+        .time {
+            font-weight: 600;
+            color: var(--accent);
+            font-size: 0.95rem;
+            margin-bottom: 4px;
+        }
 
-.topic {
-  font-size: 1rem;
-  font-weight: 500;
-  margin-bottom: 4px;
-}
+        .topic {
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
 
-.presenter {
-  font-size: 0.9rem;
-  color: var(--muted);
-}
+        .presenter {
+            font-size: 0.9rem;
+            color: var(--muted);
+        }
 
-@media (min-width: 700px) {
-  .session {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  }
+        @media (min-width: 700px) {
+            .session {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
 
-  .time,
-  .topic,
-  .presenter {
-    margin-bottom: 0;
-  }
+            .time,
+            .topic,
+            .presenter {
+                margin-bottom: 0;
+            }
 
-  .time {
-    flex: 0 0 140px;
-  }
+            .time {
+                flex: 0 0 140px;
+            }
 
-  .topic {
-    flex: 1;
-    padding: 0 12px;
-  }
+            .topic {
+                flex: 1;
+                padding: 0 12px;
+            }
 
-  .presenter {
-    flex: 0 0 220px;
-    text-align: right;
-  }
-}
+            .presenter {
+                flex: 0 0 220px;
+                text-align: right;
+            }
+        }
 
-.transport-btn {
-  background: #1f2d3d;
-  color: white;
-  padding: 6px 12px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 0.85rem;
-}
+        .transport-btn {
+            background: #1f2d3d;
+            color: white;
+            padding: 6px 12px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.85rem;
+        }
 
-.transport-btn:hover {
-  opacity: 0.9;
-}
+        .transport-btn:hover {
+            opacity: 0.9;
+        }
 
-.transport-dropdown {
-  margin-top: 10px;
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 8px;
-  padding: 10px 14px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-  display: none;
-}
+        .transport-dropdown {
+            margin-top: 10px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            padding: 10px 14px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+            display: none;
+        }
 
-.transport-dropdown .van {
-  margin-bottom: 10px;
-  text-align: left;
-}
+        .transport-dropdown .van {
+            margin-bottom: 10px;
+            text-align: left;
+        }
 
-.transport-dropdown .van strong {
-  display: block;
-  margin-bottom: 4px;
-}
+        .transport-dropdown .van strong {
+            display: block;
+            margin-bottom: 4px;
+        }
 
-.transport-dropdown ul {
-  margin-left: 20px;
-  margin-bottom: 0;
-  text-align: left;
-}
+        .transport-dropdown ul {
+            margin-left: 20px;
+            margin-bottom: 0;
+            text-align: left;
+        }
 
-.transport-dropdown li {
-  font-size: 0.9rem;
-  color: #1f2d3d;
-}
-.transport-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-}
+        .transport-dropdown li {
+            font-size: 0.9rem;
+            color: #1f2d3d;
+        }
 
-.transport-btn .chev {
-  width: 14px;
-  height: 14px;
-  transition: transform 240ms ease;
-}
-.wifi-box {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  background: rgba(255, 255, 255, 0.75);
-  padding: 10px 14px;
-  margin: 15px 0;
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-  font-size: 0.95rem;
-}
+        .transport-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
 
-.wifi-icon {
-  font-size: 1.5rem;
-}
-.wifi-icon svg {
-  width: 34px;
-  height: 34px;
-}
-.wifi-info div {
-  line-height: 1.3;
-}
+        .transport-btn .chev {
+            width: 14px;
+            height: 14px;
+            transition: transform 240ms ease;
+        }
 
+        /* --- Updated Info Boxes --- */
+        .info-box {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: rgba(255, 255, 255, 0.75);
+            padding: 12px 20px;
+            margin: 15px auto;
+            border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+            font-size: 0.95rem;
+            width: fit-content; 
+            max-width: 100%;
+        }
 
+        .info-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-/* rotate when dropdown is open */
-.presenter.open .chev {
-  transform: rotate(180deg);
-}
-.presenter.open .transport-dropdown {
-  display: block;
-}
-</style>
+        .info-icon svg {
+            width: 32px;
+            height: 32px;
+            color: var(--accent);
+        }
+
+        .info-content {
+            line-height: 1.3;
+        }
+
+        .info-title {
+            font-weight: 700;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--muted);
+            margin-bottom: 8px;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            padding-bottom: 4px;
+        }
+
+        /* Grid to perfectly align names and numbers */
+        .contacts-grid {
+            display: grid;
+            grid-template-columns: auto auto;
+            column-gap: 24px;
+            row-gap: 10px;
+            align-items: center;
+        }
+
+        .contact-name {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+        }
+
+        .contact-title {
+            font-size: 0.75rem;
+            color: var(--muted);
+            font-weight: normal;
+            margin-top: 2px;
+        }
+
+        /* --- Map Link Styles --- */
+        .location-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.85rem;
+            color: #2563eb;
+            text-decoration: none;
+            margin-top: 6px;
+            font-weight: 500;
+            transition: opacity 0.2s;
+        }
+
+        .location-link:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+
+        .location-link svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* rotate when dropdown is open */
+        .presenter.open .chev {
+            transform: rotate(180deg);
+        }
+
+        .presenter.open .transport-dropdown {
+            display: block;
+        }
+
+        /* --- Mobile Responsive Fixes --- */
+        @media (max-width: 550px) {
+            body {
+                padding: 10px 15px; /* Free up edge space on mobile */
+            }
+            .info-box {
+                align-items: flex-start; /* Keep icon at top if text wraps */
+            }
+            .contacts-grid {
+                grid-template-columns: 1fr; /* Stack names and numbers vertically */
+                row-gap: 2px;
+            }
+            .contacts-grid > div:nth-child(3) {
+                margin-top: 10px; /* Space out Katerina from Denys's number */
+            }
+        }
+    </style>
 </head>
 
 <body>
     <div class="bg-fixed"></div>
     <div class="agenda-container">
-        <h1>Digital Conference Agenda</h1>
-<div class="wifi-box">
-    <div class="wifi-icon">
-<svg class="wifi-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
-     xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="2"
-     stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" role="img">
-  <path d="M5 12.55a11 11 0 0 1 14.08 0"></path>
-  <path d="M1.42 9a16 16 0 0 1 21.16 0"></path>
-  <path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path>
-  <line x1="12" y1="20" x2="12.01" y2="20"></line>
-</svg>
-    </div>
+        <h1>Europe Connect Agenda</h1>
+        
+        <div class="info-box">
+            <div class="info-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" aria-hidden="true">
+                    <path d="M5 12.55a11 11 0 0 1 14.08 0"></path>
+                    <path d="M1.42 9a16 16 0 0 1 21.16 0"></path>
+                    <path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path>
+                    <line x1="12" y1="20" x2="12.01" y2="20"></line>
+                </svg>
+            </div>
 
-    <div class="wifi-info">
-        <div><strong>WiFi:</strong> @Hyatt_Meeting</div>
-        <div><strong>Password:</strong> 1HRS1</div>
-    </div>
-</div>
+            <div class="info-content">
+                <div style="margin-bottom: 4px;"><strong>WiFi:</strong> hotel@ghms</div>
+                <div><strong>Password:</strong> HAPPY2CU</div>
+            </div>
+        </div>
+        
+        <div class="info-box">
+            <div class="info-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" aria-hidden="true">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+            </div>
+
+            <div class="info-content">
+                <div class="info-title">Contacts</div>
+                <div class="contacts-grid">
+                    <div class="contact-name">
+                        <strong>Denys</strong>
+                    </div>
+                    <div>+359 89 543 1281</div>
+
+                    <div class="contact-name">
+                        <strong>Katerina</strong>
+                        <span class="contact-title">(Exec. Asst.)</span>
+                    </div>
+                    <div> +359 89 679 1345 </div>
+                </div>
+            </div>
+        </div>
+        
         <h2>DAY 1</h2>
         <div class="session">
-            <div class="time">09:30 – 10:00</div>
-            <div class="topic">Gathering & Welcome Coffee</div>
+            <div class="time">13:00 - 13:45</div>
+            <div class="topic">
+                <div>Lunch at Vienna Restaurant, Floor 3</div>
+            </div>
             <div class="presenter">All</div>
         </div>
         <div class="session">
-            <div class="time">10:00 – 10:45</div>
-            <div class="topic">PMBG Market Overview</div>
-            <div class="presenter">Denys Strobykin & Polina Ninova</div>
+            <div class="time">13:15 - 13:45</div>
+            <div class="topic">PMBG Organization, Da Vinci Hall, Floor 3</div>
+            <div class="presenter">Fred, Daniele, George, Denys, Anna</div>
         </div>
         <div class="session">
-            <div class="time">10:45 – 11:30</div>
-            <div class="topic">Digital Strategy Europe</div>
-            <div class="presenter">Utku Tari</div>
+            <div class="time">13:45 - 14:45</div>
+            <div class="topic">Market Intro & Performance</div>
+            <div class="presenter">All, Presenter: Ivan</div>
         </div>
         <div class="session">
-            <div class="time">11:30 – 11:45</div>
+            <div class="time">14:45 - 15:00</div>
             <div class="topic">Coffee Break</div>
             <div class="presenter">All</div>
         </div>
         <div class="session">
-            <div class="time">11:45 – 12:30</div>
-            <div class="topic">Global Digital Engagement Strategy</div>
-            <div class="presenter">Fabian Gonzalez</div>
+            <div class="time">15:00 - 16:25</div>
+            <div class="topic">Consumer Insights & SFP Plans</div>
+            <div class="presenter">All, Presenters: Sabina, Aber</div>
         </div>
         <div class="session">
-            <div class="time">12:30 – 14:00</div>
-            <div class="topic">Lunch</div>
-            <div class="presenter">All</div>
-        </div>
-        <div class="session">
-            <div class="time">14:00 – 14:30</div>
-            <div class="topic">M‑C in Club</div>
-            <div class="presenter">Kamil Stankiewicz</div>
-        </div>
-        <div class="session">
-            <div class="time">14:30 – 15:00</div>
-            <div class="topic">Leveraging personalization to increase conversion rate on e‑com</div>
-            <div class="presenter">Mihaela Leahu & Denisa Maslejova</div>
-        </div>
-        <div class="session">
-            <div class="time">15:00 – 15:30</div>
-            <div class="topic">Beyond Cart: Elevating Consumer Experience</div>
-            <div class="presenter">Georgios Riskas-Daniil</div>
-        </div>
-        <div class="session">
-            <div class="time">15:30 – 16:00</div>
+            <div class="time">16:25 - 16:40</div>
             <div class="topic">Coffee Break</div>
             <div class="presenter">All</div>
         </div>
         <div class="session">
-            <div class="time">16:00 – 16:30</div>
-            <div class="topic">Digital Engagement in Dark Market</div>
-            <div class="presenter">David Olah</div>
+            <div class="time">16:40 - 18:00</div>
+            <div class="topic">ComOps Plans & CA</div>
+            <div class="presenter">All, Presenters: Sevdalina, Jeni</div>
         </div>
         <div class="session">
-            <div class="time">16:30 – 19:30</div>
-            <div class="topic">Field Visit - Physical Channels</div>
-            <div class="presenter">
-    <button class="transport-btn" onclick="toggleTransport(this)">
-    View transportation
-    <svg class="chev" viewBox="0 0 24 24">
-        <path d="M6 9l6 6 6-6" stroke="white" stroke-width="2" fill="none"
-              stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-</button>
-
-    <div id="transport-dropdown" class="transport-dropdown">
-        <div class="van">
-            <strong>Van 1 - Black</strong>
-            <ul>
-                <li>Anton Todorov</li>
-                <li>Georgios Riskas-Daniil</li>
-                <li>Ioannis Mavrodakos</li>
-                <li>Katerina Milkova</li>
-                <li>Marinela Karamanova</li>
-                <li>Panos Rousakis</li>
-                <li>Phivos Phivou</li>
-                <li>Polina Ninova</li>
-                <li>Said Suleyman</li>
-                <li>Theodora Borissova</li>
-                <li>Utku Tari</li>
-
-            </ul>
-        </div>
-
-        <div class="van">
-            <strong>Van 2 - White</strong>
-            <ul>
-                <li>David Olah</li>
-                <li>Denisa Maslejova</li>
-                <li>Dimitar Stoyanov</li>
-                <li>Evgeni Anastasov</li>
-                <li>Kamil Stankiewicz</li>
-                <li>Maksym Klymov</li>
-                <li>Mihaela Leahu</li>
-                <li>Nadezhda Boneva</li>
-                <li>Philip Stoyanov</li>
-                <li>Sevdalina Vasilescu</li>
-                <li>Toma Gagov</li>
-            </ul>
-        </div>
-    </div>
-</div>
+            <div class="time">18:00 - 19:00</div>
+            <div class="topic">Check-in and free time</div>
+            <div class="presenter">All</div>
         </div>
         <div class="session">
-            <div class="time">19:30 – 20:30</div>
-            <div class="topic">Free time</div>
-            <div class="presenter"></div>
+            <div class="time">19:00 - 22:00</div>
+            <div class="topic">Dinner at Spectrum Restaurant, Floor 28</div>
+            <div class="presenter">All</div>
         </div>
-        <div class="session">
-            <div class="time">20:30 – </div>
-            <div class="topic">Dinner at <a href="https://cosmosbg.com/en/" target="_blank">Cosmos restaurant</a> and Drinks at LAMP - <a href="https://coyotegroup.org/venues/manco/" target="_blank">Manco</a></div>
-            <div class="presenter"></div>
-        </div>
+        
 
         <h2>DAY 2</h2>
         <div class="session">
-            <div class="time">09:30 – 10:00</div>
-            <div class="topic">Gathering & Welcome Coffee</div>
+            <div class="time">08:00 - 08:40</div>
+            <div class="topic">Breakfast at M Restaurant, Floor 3</div>
             <div class="presenter">All</div>
         </div>
         <div class="session">
-            <div class="time">10:00 – 10:30</div>
-            <div class="topic">Competitive e‑com price & Paid Media Partnerships</div>
-            <div class="presenter">Sasa Toroman</div>
+            <div class="time">08:40 - 09:00</div>
+            <div class="topic">Check-out</div>
+            <div class="presenter">All</div>
         </div>
+
+
         <div class="session">
-            <div class="time">10:30 – 11:15</div>
-            <div class="topic">Industry Trends and Innovations</div>
-            <div class="presenter">Aviram Azoulay - Bylith</div>
+            <div class="time">09:00 - 10:00</div>
+            <div class="topic">Field Visit</div>
+            <div class="presenter">
+                <button class="transport-btn" onclick="toggleTransport(this)">
+                    View transportation
+                    <svg class="chev" viewBox="0 0 24 24">
+                        <path d="M6 9l6 6 6-6" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </button>
+
+                <div id="transport-dropdown" class="transport-dropdown">
+                    <div class="van">
+                        <strong>Minivan 1</strong>
+                        <ul>
+                            <li>Fred de Wilde</li>
+                            <li>Devraj Doss</li>
+                            <li>Massimo Andolina</li>
+                            <li>Cengiz Cilengiroglu</li>
+                            <li>George Margonis</li>
+                            <li>Denys Strobykin</li>
+                            <li>Sevdalina Vasilescu</li>
+                        </ul>
+                    </div>
+
+                    <div class="van">
+                        <strong>Minivan 2</strong>
+                        <ul>
+                            <li>Andre Sorge</li>
+                            <li>Dimitrios Giannopoulos</li>
+                            <li>Hozefa Vohra</li>
+                            <li>Donovan Ross</li>
+                            <li>Aleksandar Jakovljevic</li>
+                            <li>Aber Babic</li>
+                            <li>Kristina Stoimenova</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
+
+
         <div class="session">
-            <div class="time">11:15 – 11:30</div>
-            <div class="topic">Coffee Break</div>
+            <div class="time">10:30 - 11:00</div>
+            <div class="topic">
+                <div>Arrival at SEC, technical check & seating</div>
+                <a href="https://maps.app.goo.gl/gKHhEK2j9RwXizXr9" class="location-link" target="_blank" rel="noopener noreferrer">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    Mall Paradise, Floor 3
+                </a>
+            </div>
             <div class="presenter">All</div>
         </div>
         <div class="session">
-            <div class="time">11:30 – 12:45</div>
-            <div class="topic">Brainstorming Session - Physical & Digital Channels Synergies</div>
+            <div class="time">11:00 - 13:00</div>
+            <div class="topic">Europe Connect Webcast</div>
             <div class="presenter">All</div>
         </div>
         <div class="session">
-            <div class="time">12:45 – 13:00</div>
-            <div class="topic">Closing Remarks</div>
-            <div class="presenter"></div>
+            <div class="time">13:30 - 14:30</div>
+            <div class="topic">Lunch at Club Lounge, SEC</div>
+            <div class="presenter">All</div>
         </div>
         <div class="session">
-            <div class="time">13:00 – 14:00</div>
-            <div class="topic">Lunch</div>
-            <div class="presenter"></div>
+            <div class="time">13:45 - 14:45</div>
+            <div class="topic">Airport Transfer</div>
+            <div class="presenter">George, Aleksandar</div>
         </div>
         <div class="session">
-            <div class="time">14:00</div>
-            <div class="topic">Departure</div>
-            <div class="presenter"></div>
+            <div class="time">14:00 - 14:30</div>
+            <div class="topic">Media Interviews</div>
+            <div class="presenter">Fred and Massimo</div>
+        </div>
+
+        <div class="session">
+            <div class="time">14:30 - 15:30</div>
+            <div class="topic">Airport Transfer</div>
+            <div class="presenter">
+                <button class="transport-btn" onclick="toggleTransport(this)">
+                    View transportation
+                    <svg class="chev" viewBox="0 0 24 24">
+                        <path d="M6 9l6 6 6-6" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </button>
+
+                <div id="transport-dropdown" class="transport-dropdown">
+                    <div class="van">
+                        <strong>Minivan 1</strong>
+                        <ul>
+                            <li>Fred de Wilde</li>
+                            <li>Massimo Andolina</li>
+                            <li>Cengiz Cilengiroglu</li>
+                            <li>Denys Strobykin</li>
+                        </ul>
+                    </div>
+
+                    <div class="van">
+                        <strong>Minivan 2</strong>
+                        <ul>
+                            <li>Andre Sorge</li>
+                            <li>Dimitrios Giannopoulos</li>
+                            <li>Hozefa Vohra</li>
+                            <li>Donovan Ross</li>
+                            <li>Sevdalina Vasilescu</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="session">
+            <div class="time">14:30 - 15:00</div>
+            <div class="topic">Transfer to Hotel</div>
+            <div class="presenter">Devraj</div>
         </div>
     </div>
 
     <script>
         // Track maximum viewport height to handle address bar hide/show
         let maxHeight = window.innerHeight;
-        
+
         function updateMaxHeight() {
             const currentHeight = window.innerHeight;
             if (currentHeight > maxHeight) {
@@ -425,20 +560,20 @@ h2 {
                 document.documentElement.style.setProperty('--viewport-height', maxHeight + 'px');
             }
         }
-        
+
         // Set initial height
         updateMaxHeight();
-        
+
         // Update on resize events (including address bar changes)
         window.addEventListener('resize', updateMaxHeight);
-        
+
         // Also check after a short delay (for slower address bar animations)
         setTimeout(updateMaxHeight, 500);
         setTimeout(updateMaxHeight, 1000);
-function toggleTransport(btn) {
-    const presenter = btn.closest('.presenter');
-    presenter.classList.toggle('open');
-}
+        function toggleTransport(btn) {
+            const presenter = btn.closest('.presenter');
+            presenter.classList.toggle('open');
+        }
     </script>
 </body>
 
