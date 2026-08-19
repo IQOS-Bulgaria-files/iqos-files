@@ -1,0 +1,715 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Europe Connect Bulgaria</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-overlay: rgba(255, 255, 255, 0.06);
+            --accent: #1f2d3d;
+            --muted: #5b6b7a;
+            --viewport-height: 100vh;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.4;
+            color: #1f2d3d;
+            padding: 10px 30px;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        .bg-fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+            background-image: url('background.png');
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            height: var(--viewport-height);
+        }
+
+        .bg-fixed::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(255, 255, 255, 0.008);
+        }
+
+        /* --- Top logo (seamless, transparent PNG) --- */
+        .brand-logo {
+            display: block;
+            width: 180px;
+            max-width: 60%;
+            height: auto;
+            margin: 4px auto 14px;
+            filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.35));
+        }
+
+        .agenda-container {
+            background: var(--bg-overlay);
+            backdrop-filter: blur(1.3px);
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.695);
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* --- Day switching (smooth) --- */
+        .agenda-container {
+            display: none;
+        }
+
+        .agenda-container.active {
+            display: block;
+            animation: fadeInDay 420ms ease;
+        }
+
+        @keyframes fadeInDay {
+            from {
+                opacity: 0;
+                transform: translateY(12px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* --- Day tab buttons --- */
+        .day-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            max-width: 900px;
+            margin: 8px auto 16px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .day-tab {
+            font-family: 'Inter', sans-serif;
+            background: rgba(255, 255, 255, 0.78);
+            color: var(--accent);
+            border: 2px solid transparent;
+            padding: 10px 30px;
+            border-radius: 999px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+            transition: transform 200ms ease, background 200ms ease, box-shadow 200ms ease, color 200ms ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+        }
+
+        .day-tab:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.32);
+        }
+
+        .day-tab.active {
+            background: var(--accent);
+            color: #fff;
+            border-color: rgba(255, 255, 255, 0.65);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
+        }
+
+        /* --- Headings (more visible) --- */
+        h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-align: center;
+            color: #fff;
+            letter-spacing: 0.5px;
+            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.65);
+        }
+
+        h2 {
+            margin-top: 26px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fff;
+            border-bottom: 3px solid #fff;
+            display: inline-block;
+            padding-bottom: 6px;
+            letter-spacing: 0.4px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+        }
+
+        h3 {
+            margin-top: 8px;
+            font-size: 1.12rem;
+            font-weight: 600;
+            color: #fff;
+            letter-spacing: 0.3px;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.55);
+        }
+
+        .session {
+            display: flex;
+            flex-direction: column;
+            background: rgba(255, 255, 255, 0.75);
+            border-radius: 12px;
+            padding: 12px 16px;
+            margin-top: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.10);
+        }
+
+        .time {
+            font-weight: 600;
+            color: var(--accent);
+            font-size: 0.95rem;
+            margin-bottom: 4px;
+        }
+
+        .topic {
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+
+        .presenter {
+            font-size: 0.9rem;
+            color: var(--muted);
+        }
+
+        @media (min-width: 700px) {
+            .session {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .time,
+            .topic,
+            .presenter {
+                margin-bottom: 0;
+            }
+
+            .time {
+                flex: 0 0 140px;
+            }
+
+            .topic {
+                flex: 1;
+                padding: 0 12px;
+            }
+
+            .presenter {
+                flex: 0 0 220px;
+                text-align: right;
+            }
+        }
+
+        .transport-btn {
+            background: #1f2d3d;
+            color: white;
+            padding: 6px 12px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.85rem;
+        }
+
+        .transport-btn:hover {
+            opacity: 0.9;
+        }
+
+        .transport-dropdown {
+            margin-top: 10px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            padding: 10px 14px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+            display: none;
+        }
+
+        .transport-dropdown .van {
+            margin-bottom: 10px;
+            text-align: left;
+        }
+
+        .transport-dropdown .van strong {
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .transport-dropdown ul {
+            margin-left: 20px;
+            margin-bottom: 0;
+            text-align: left;
+        }
+
+        .transport-dropdown li {
+            font-size: 0.9rem;
+            color: #1f2d3d;
+        }
+
+        .transport-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .transport-btn .chev {
+            width: 14px;
+            height: 14px;
+            transition: transform 240ms ease;
+        }
+
+        /* --- Updated Info Boxes --- */
+        .info-box {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: rgba(255, 255, 255, 0.75);
+            padding: 12px 20px;
+            margin: 15px auto;
+            border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+            font-size: 0.95rem;
+            width: fit-content;
+            max-width: 100%;
+        }
+
+        .info-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .info-icon svg {
+            width: 32px;
+            height: 32px;
+            color: var(--accent);
+        }
+
+        .info-content {
+            line-height: 1.3;
+        }
+
+        .info-title {
+            font-weight: 700;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--muted);
+            margin-bottom: 8px;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            padding-bottom: 4px;
+        }
+
+        /* Grid to perfectly align names and numbers */
+        .contacts-grid {
+            display: grid;
+            grid-template-columns: auto auto;
+            column-gap: 24px;
+            row-gap: 10px;
+            align-items: center;
+        }
+
+        .contact-name {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+        }
+
+        .contact-title {
+            font-size: 0.75rem;
+            color: var(--muted);
+            font-weight: normal;
+            margin-top: 2px;
+        }
+
+        /* --- Map Link Styles --- */
+        .location-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.85rem;
+            color: #2563eb;
+            text-decoration: none;
+            margin-top: 6px;
+            font-weight: 500;
+            transition: opacity 0.2s;
+        }
+
+        .location-link:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+
+        .location-link svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* rotate when dropdown is open */
+        .presenter.open .chev {
+            transform: rotate(180deg);
+        }
+
+        .presenter.open .transport-dropdown {
+            display: block;
+        }
+
+        /* --- Bottom text image (seamless, transparent PNG) --- */
+        .footer-text-image {
+            display: block;
+            width: 420px;
+            max-width: 80%;
+            height: auto;
+            margin: 22px auto 6px;
+            filter: drop-shadow(0 3px 10px rgba(0, 0, 0, 0.4));
+        }
+
+        /* --- Mobile Responsive Fixes --- */
+        @media (max-width: 550px) {
+            body {
+                padding: 10px 15px; /* Free up edge space on mobile */
+            }
+            .info-box {
+                align-items: flex-start; /* Keep icon at top if text wraps */
+            }
+            .contacts-grid {
+                grid-template-columns: 1fr; /* Stack names and numbers vertically */
+                row-gap: 2px;
+            }
+            .contacts-grid > div:nth-child(3) {
+                margin-top: 10px; /* Space out Katerina from Denys's number */
+            }
+            .brand-logo {
+                width: 160px;
+                max-width: 70%;
+            }
+            .footer-text-image {
+                width: 260px;
+                max-width: 88%;
+            }
+            .day-tab {
+                padding: 9px 22px;
+                font-size: 0.82rem;
+            }
+        }
+        .head-container{
+            display: flex;
+            align-items: center;
+        }
+        .footer-text-image{
+            width: 230px;
+            height: auto;
+        }
+        .brand-logo{
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg-fixed"></div>
+
+    <div class="head-container">
+            <img src="text.png" alt="Event tagline" class="footer-text-image" width="1000" height="200">
+    <img src="logo50.png" alt="Event logo" class="brand-logo" width="600" height="200">
+    </div>
+    <!-- Top logo -->
+
+    <!-- Day switch buttons -->
+    <div class="day-tabs">
+        <button type="button" class="day-tab tab-1 active" onclick="showDay(1)">Day 1</button>
+        <button type="button" class="day-tab tab-2" onclick="showDay(2)">Day 2</button>
+    </div>
+
+    <div class="agenda-container day-1 active">
+        <!--
+        <div class="info-box">
+            <div class="info-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" aria-hidden="true">
+                    <path d="M5 12.55a11 11 0 0 1 14.08 0"></path>
+                    <path d="M1.42 9a16 16 0 0 1 21.16 0"></path>
+                    <path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path>
+                    <line x1="12" y1="20" x2="12.01" y2="20"></line>
+                </svg>
+            </div>
+
+            <div class="info-content">
+                <div style="margin-bottom: 4px;"><strong>WiFi:</strong> hotel@ghms</div>
+                <div><strong>Password:</strong> HAPPY2CU</div>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <div class="info-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" aria-hidden="true">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+            </div>
+
+            <div class="info-content">
+                <div class="info-title">Contacts</div>
+                <div class="contacts-grid">
+                    <div class="contact-name">
+                        <strong>Denys</strong>
+                    </div>
+                    <div>+359 89 543 1281</div>
+
+                    <div class="contact-name">
+                        <strong>Katerina</strong>
+                        <span class="contact-title">(Exec. Asst.)</span>
+                    </div>
+                    <div> +359 89 679 1345 </div>
+                </div>
+            </div>
+        </div>
+        -->
+
+        <h2>DAY 1</h2>
+        <div class="session">
+            <div class="time">13:00 - 14:00</div>
+            <div class="topic">
+                <div><b>Arrival, registration, coffee</b><br>Rila Hotel, Borovets</div>
+            </div>
+
+        </div>
+
+        <h2>DRIVE TO WIN THE FUTURE Conference</h2>
+        <h3>Hall Borovets, fl. 1</h3>
+        <div class="session">
+            <div class="time">10:00 – 10:05</div>
+            <div class="topic"><b>Opening</b> <br>
+            </div>
+
+        </div>
+
+        <div class="session">
+    <div class="time">10:00 – 10:30</div>
+    <div class="topic"><b>Vision for the PMI Bulgaria</b> <br>
+    </div>
+</div>
+<div class="session">
+    <div class="time">10:30 – 11:20</div>
+    <div class="topic"><b>Panel 1</b> <br>
+    </div>
+</div>
+<div class="session">
+    <div class="time">11:20 – 12:30</div>
+    <div class="topic"><b>Panel 2</b> <br>
+    </div>
+</div>
+<div class="session">
+    <div class="time">12:30 – 13:30</div>
+    <div class="topic"><b>Lunch</b> <br>
+    </div>
+</div>
+<div class="session">
+    <div class="time">13:30 – 14:45</div>
+    <div class="topic"><b>Panel 3</b> <br>
+    </div>
+</div>
+<div class="session">
+    <div class="time">14:45 – 15:15</div>
+    <div class="topic"><b>Coffee Break</b> <br>
+    </div>
+</div>
+<div class="session">
+    <div class="time">15:15 – 16:15</div>
+    <div class="topic"><b>Panel 4</b> <br>
+    </div>
+</div>
+<div class="session">
+    <div class="time">16:15 – 16:30</div>
+    <div class="topic"><b>Closing remarks</b> <br>
+    </div>
+</div>
+<div class="session">
+    <div class="time">16:30 – 17:00</div>
+    <div class="topic"><b>PICTURE</b> <br>
+    </div>
+</div>
+<div class="session">
+    <div class="time">16:30</div>
+    <div class="topic"><b>Free time</b> <br>
+    </div>
+</div>
+
+
+        <h2>OFFICAL DINNER  <br>50 YEARS PHILIP MORRIS BULGARIA</h2>
+        <h3>Hall Borovets, fl. 1</h3>
+        <div class="session">
+            <div class="time">19:30</div>
+            <div class="topic"><b>Dinner</b></div>
+
+        </div>
+        <div class="session">
+            <div class="time">20:30</div>
+            <div class="topic"><b>Official Celebration</b>
+            </div>
+        </div>
+
+
+        <!--
+        <div class="session">
+            <div class="time">15:00 - 16:00</div>
+            <div class="topic"><b>Airport Transfer</b></div>
+            <div class="presenter">
+                <button class="transport-btn" onclick="toggleTransport(this)">
+                    View transportation
+                    <svg class="chev" viewBox="0 0 24 24">
+                        <path d="M6 9l6 6 6-6" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </button>
+
+                <div class="transport-dropdown">
+                    <div class="van">
+                        <strong>Minivan 1</strong>
+                        <ul>
+                            <li>Massimo Andolina</li>
+                            <li>Cengiz Cilengiroglu</li>
+                            <li>Dimitrios Giannopoulos</li>
+                            <li>Denys Strobykin</li>
+                        </ul>
+                    </div>
+
+                    <div class="van">
+                        <strong>Minivan 2</strong>
+                        <ul>
+                            <li>Hozefa Vohra</li>
+                            <li>Donovan Ross</li>
+                            <li>Sevdalina Vasilescu</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        -->
+
+        <div class="session">
+            <div class="time">22:00</div>
+            <div class="topic"><b>DJ Party</b>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="agenda-container day-2">
+
+        <h2>DAY 2</h2>
+        <h3>Hall Borovets, fl. 1</h3>
+        <div class="session">
+            <div class="time">08:00 – 09:30</div>
+            <div class="topic"><b>Breakfast</b> <br>Rila Hotel, Borovets
+            </div>
+        </div>
+        <div class="session">
+            <div class="time">09:30 – 10:00</div>
+            <div class="topic"><b>Welcome &amp; Recap of Day 1</b> <br>
+            </div>
+        </div>
+        <div class="session">
+            <div class="time">10:00 – 11:15</div>
+            <div class="topic"><b>Panel 5</b> <br>
+            </div>
+        </div>
+        <div class="session">
+            <div class="time">11:15 – 11:30</div>
+            <div class="topic"><b>Coffee Break</b> <br>
+            </div>
+        </div>
+        <div class="session">
+            <div class="time">11:30 – 12:30</div>
+            <div class="topic"><b>Strategy Session</b> <br>
+            </div>
+        </div>
+        <div class="session">
+            <div class="time">12:30 – 13:30</div>
+            <div class="topic"><b>Farewell Lunch</b> <br>
+            </div>
+        </div>
+        <div class="session">
+            <div class="time">13:30</div>
+            <div class="topic"><b>Departure &amp; Airport Transfers</b> <br>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Bottom text image -->
+
+    <script>
+        // Track maximum viewport height to handle address bar hide/show
+        let maxHeight = window.innerHeight;
+
+        function updateMaxHeight() {
+            const currentHeight = window.innerHeight;
+            if (currentHeight > maxHeight) {
+                maxHeight = currentHeight;
+                document.documentElement.style.setProperty('--viewport-height', maxHeight + 'px');
+            }
+        }
+
+        // Set initial height
+        updateMaxHeight();
+
+        // Update on resize events (including address bar changes)
+        window.addEventListener('resize', updateMaxHeight);
+
+        // Also check after a short delay (for slower address bar animations)
+        setTimeout(updateMaxHeight, 500);
+        setTimeout(updateMaxHeight, 1000);
+
+        function toggleTransport(btn) {
+            const presenter = btn.closest('.presenter');
+            presenter.classList.toggle('open');
+        }
+
+        // Smoothly switch between agenda days
+        function showDay(day) {
+            document.querySelectorAll('.agenda-container').forEach(function (container) {
+                container.classList.remove('active');
+            });
+            document.querySelectorAll('.day-tab').forEach(function (tab) {
+                tab.classList.remove('active');
+            });
+            document.querySelector('.day-' + day).classList.add('active');
+            document.querySelector('.tab-' + day).classList.add('active');
+        }
+    </script>
+</body>
+
+</html>
