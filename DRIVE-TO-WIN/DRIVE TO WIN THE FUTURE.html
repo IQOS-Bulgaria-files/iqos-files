@@ -46,7 +46,7 @@
             right: 0;
             bottom: 0;
             z-index: -1;
-            background-image: url('https://raw.githubusercontent.com/IQOS-Bulgaria-files/iqos-files/refs/heads/main/DRIVE-TO-WIN/background.png');
+            background-image: url('background.png');
             background-size: cover;
             background-position: center center;
             background-repeat: no-repeat;
@@ -154,25 +154,43 @@
             text-shadow: 0 2px 12px rgba(0, 0, 0, 0.65);
         }
 
-        h2 {
-            margin-top: 26px;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #fff;
+h2 {
+    margin-top: 26px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+    background: rgba(31, 45, 61, 0.82);   /* navy pill */
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 8px;
+    letter-spacing: 0.4px;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.45);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+h3 {
+    margin-top: 8px;
+    font-size: 1.12rem;
+    font-weight: 600;
+    color: #fff;
+    background: rgba(31, 45, 61, 0.82);   /* navy pill */
+    display: inline-block;
+    padding: 4px 14px;
+    border-radius: 8px;
+    letter-spacing: 0.3px;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.45);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+
+
+        .topH3{
             border-bottom: 3px solid #fff;
+             border-bottom: 3px solid #fff;
             display: inline-block;
             padding-bottom: 6px;
             letter-spacing: 0.4px;
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
-        }
-
-        h3 {
-            margin-top: 8px;
-            font-size: 1.12rem;
-            font-weight: 600;
-            color: #fff;
-            letter-spacing: 0.3px;
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.55);
         }
 
         .session {
@@ -426,12 +444,15 @@
             align-items: center;
         }
         .footer-text-image{
-            width: 230px;
+            width: 180px;
             height: auto;
         }
         .brand-logo{
-            width: 100px;
-            height: 100px;
+            width: 80px;
+            height: 80px;
+        }
+        h3 .location-link {
+            color: #fff;
         }
     </style>
 </head>
@@ -440,8 +461,8 @@
     <div class="bg-fixed"></div>
 
     <div class="head-container">
-            <img src="https://raw.githubusercontent.com/IQOS-Bulgaria-files/iqos-files/refs/heads/main/DRIVE-TO-WIN/Text.png" alt="Event tagline" class="footer-text-image" width="1000" height="200">
-    <img src="https://raw.githubusercontent.com/IQOS-Bulgaria-files/iqos-files/refs/heads/main/DRIVE-TO-WIN/logo50.png" alt="Event logo" class="brand-logo" width="600" height="200">
+            <img src="text.png" alt="Event tagline" class="footer-text-image" width="1000" height="200">
+    <img src="logo50.png" alt="Event logo" class="brand-logo" width="600" height="200">
     </div>
     <!-- Top logo -->
 
@@ -503,11 +524,19 @@
             <div class="time">13:00 - 14:00</div>
             <div class="topic">
                 <div><b>Arrival, registration, coffee</b><br>Rila Hotel, Borovets</div>
+                <a href="https://share.google/hOuSShBmQSlepyo9F" class="location-link" target="_blank" rel="noopener noreferrer">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    Location
+                </a>
             </div>
 
         </div>
 
-        <h2>DRIVE TO WIN THE FUTURE Conference</h2>
+        <h3 class="topH3">DRIVE TO WIN THE FUTURE Conference</h3>
+        <br>
         <h3>Hall Borovets, fl. 1</h3>
         <div class="session">
             <div class="time">10:00 – 10:05</div>
@@ -562,13 +591,14 @@
     </div>
 </div>
 <div class="session">
-    <div class="time">16:30</div>
+    <div class="time">17:00</div>
     <div class="topic"><b>Free time</b> <br>
     </div>
 </div>
 
 
-        <h2>OFFICAL DINNER  <br>50 YEARS PHILIP MORRIS BULGARIA</h2>
+        <h3  class="topH3">OFFICAL DINNER  <br>50 YEARS PHILIP MORRIS BULGARIA</h3>
+        <br>
         <h3>Hall Borovets, fl. 1</h3>
         <div class="session">
             <div class="time">19:30</div>
@@ -630,42 +660,62 @@
     <div class="agenda-container day-2">
 
         <h2>DAY 2</h2>
-        <h3>Hall Borovets, fl. 1</h3>
-        <div class="session">
-            <div class="time">08:00 – 09:30</div>
-            <div class="topic"><b>Breakfast</b> <br>Rila Hotel, Borovets
-            </div>
+        <br>
+        <div class="containerH3">
+            <h3 class="topH3">DRIVE TO WIN THE FUTURE TEAMBUILDING
+            </h3>
+            <br>
+            <h3>A1 Motor Park
+                <br>
+                <a href="https://share.google/hOuSShBmQSlepyo9F" class="location-link" target="_blank" rel="noopener noreferrer">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    Location
+                </a>
+            </h3>
+            
         </div>
+        
         <div class="session">
-            <div class="time">09:30 – 10:00</div>
-            <div class="topic"><b>Welcome &amp; Recap of Day 1</b> <br>
-            </div>
+    <div class="time">10:30 – 11:00</div>
+    <div class="topic"><b>Safety driving instructions</b> <br>
+    </div>
+    </div>
+
+    <div class="session">
+        <div class="time">11:00 - 13:15</div>
+        <div class="topic"><b>Teambuilding Activities</b> <br>
         </div>
-        <div class="session">
-            <div class="time">10:00 – 11:15</div>
-            <div class="topic"><b>Panel 5</b> <br>
-            </div>
+    </div>
+    <div class="session">
+        <div class="time">13:20 - 14:20</div>
+        <div class="topic"><b>Lunch</b> <br>
         </div>
-        <div class="session">
-            <div class="time">11:15 – 11:30</div>
-            <div class="topic"><b>Coffee Break</b> <br>
-            </div>
+    </div>
+    <div class="session">
+        <div class="time">14:30 - 15:30</div>
+        <div class="topic"><b>Awards</b> <br>
         </div>
-        <div class="session">
-            <div class="time">11:30 – 12:30</div>
-            <div class="topic"><b>Strategy Session</b> <br>
-            </div>
+    </div>
+    <div class="session">
+        <div class="time">16:00</div>
+        <div class="topic"><b>Back at the hotel / free time</b> <br>
         </div>
-        <div class="session">
-            <div class="time">12:30 – 13:30</div>
-            <div class="topic"><b>Farewell Lunch</b> <br>
-            </div>
+    </div>
+
+    <h3 class="topH3">PARTY TIME</h3>
+    <div class="session">
+        <div class="time">19:30</div>
+        <div class="topic"><b>Dinner</b> <br>
         </div>
-        <div class="session">
-            <div class="time">13:30</div>
-            <div class="topic"><b>Departure &amp; Airport Transfers</b> <br>
-            </div>
+    </div>
+    <div class="session">
+        <div class="time">21:30</div>
+        <div class="topic"><b>Karaoke &amp; DJ Party</b> <br>
         </div>
+    </div>
 
     </div>
 
