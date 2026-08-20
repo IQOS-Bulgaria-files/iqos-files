@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>DRIVE TO WIN THE FUTURE</title>
+    <title>Europe Connect Bulgaria</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -12,7 +12,7 @@
         :root {
             --bg-overlay: rgba(255, 255, 255, 0.06);
             --accent: #1f2d3d;
-            --muted: #5b6b7a;
+            --muted: #323b44;
             --viewport-height: 100vh;
         }
 
@@ -46,7 +46,7 @@
             right: 0;
             bottom: 0;
             z-index: -1;
-            background-image: url('https://raw.githubusercontent.com/IQOS-Bulgaria-files/iqos-files/refs/heads/main/DRIVE-TO-WIN/background.png');
+            background-image: url('background.png');
             background-size: cover;
             background-position: center center;
             background-repeat: no-repeat;
@@ -68,6 +68,93 @@
             height: auto;
             margin: 4px auto 14px;
             filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.35));
+        }
+
+        /* ============================================================
+           VIEW SWITCHING (home menu <-> sections)
+           ============================================================ */
+        .view {
+            display: none;
+        }
+
+        .view.active {
+            display: block;
+            animation: fadeInDay 420ms ease;
+        }
+
+        /* --- Home menu --- */
+        .home-menu {
+            max-width: 460px;
+            margin: 10px auto 0;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .menu-btn {
+            font-family: 'Inter', sans-serif;
+            background: rgba(255, 255, 255, 0.82);
+            color: var(--accent);
+            border: 2px solid transparent;
+            padding: 18px 24px;
+            border-radius: 14px;
+            cursor: pointer;
+            font-size: 1.05rem;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+            transition: transform 200ms ease, background 200ms ease, box-shadow 200ms ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .menu-btn:hover {
+            transform: translateY(-3px);
+            background: #fff;
+            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.42);
+        }
+
+        .menu-btn svg {
+            width: 22px;
+            height: 22px;
+            flex: 0 0 auto;
+        }
+
+        /* --- Back button --- */
+        .back-btn {
+            font-family: 'Inter', sans-serif;
+            background: rgba(255, 255, 255, 0.82);
+            color: var(--accent);
+            border: none;
+            padding: 9px 18px;
+            border-radius: 999px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin: 0 auto 4px;
+            transition: transform 180ms ease, background 180ms ease;
+        }
+
+        .back-btn:hover {
+            transform: translateX(-3px);
+            background: #fff;
+        }
+
+        .section-head {
+            display: flex;
+            justify-content: center;
+            max-width: 900px;
+            margin: 4px auto 10px;
         }
 
         .agenda-container {
@@ -113,6 +200,7 @@
             margin: 8px auto 16px;
             position: relative;
             z-index: 2;
+            flex-wrap: wrap;
         }
 
         .day-tab {
@@ -143,7 +231,7 @@
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
         }
 
-        /* --- Headings (more visible) --- */
+        /* --- Headings (dark pill for contrast on light bg) --- */
         h1 {
             font-size: 1.8rem;
             font-weight: 700;
@@ -154,43 +242,36 @@
             text-shadow: 0 2px 12px rgba(0, 0, 0, 0.65);
         }
 
-h2 {
-    margin-top: 26px;
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #fff;
-    background: rgba(31, 45, 61, 0.82);   /* navy pill */
-    display: inline-block;
-    padding: 6px 16px;
-    border-radius: 8px;
-    letter-spacing: 0.4px;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.45);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-}
-
-h3 {
-    margin-top: 8px;
-    font-size: 1.12rem;
-    font-weight: 600;
-    color: #fff;
-    background: rgba(31, 45, 61, 0.82);   /* navy pill */
-    display: inline-block;
-    padding: 4px 14px;
-    border-radius: 8px;
-    letter-spacing: 0.3px;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.45);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-}
-
-
-
-        .topH3{
-            border-bottom: 3px solid #fff;
-             border-bottom: 3px solid #fff;
+        h2 {
+            margin-top: 26px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fff;
+            background: rgba(31, 45, 61, 0.82);
             display: inline-block;
-            padding-bottom: 6px;
+            padding: 6px 16px;
+            border-radius: 8px;
             letter-spacing: 0.4px;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.45);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+        }
+
+        h3 {
+            margin-top: 8px;
+            font-size: 1.12rem;
+            font-weight: 600;
+            color: #fff;
+            background: rgba(31, 45, 61, 0.82);
+            display: inline-block;
+            padding: 4px 14px;
+            border-radius: 8px;
+            letter-spacing: 0.3px;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.45);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+        }
+
+        .topH3 {
+            letter-spacing: 0.4px;
         }
 
         .session {
@@ -249,126 +330,6 @@ h3 {
             }
         }
 
-        .transport-btn {
-            background: #1f2d3d;
-            color: white;
-            padding: 6px 12px;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 0.85rem;
-        }
-
-        .transport-btn:hover {
-            opacity: 0.9;
-        }
-
-        .transport-dropdown {
-            margin-top: 10px;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 8px;
-            padding: 10px 14px;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-            display: none;
-        }
-
-        .transport-dropdown .van {
-            margin-bottom: 10px;
-            text-align: left;
-        }
-
-        .transport-dropdown .van strong {
-            display: block;
-            margin-bottom: 4px;
-        }
-
-        .transport-dropdown ul {
-            margin-left: 20px;
-            margin-bottom: 0;
-            text-align: left;
-        }
-
-        .transport-dropdown li {
-            font-size: 0.9rem;
-            color: #1f2d3d;
-        }
-
-        .transport-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .transport-btn .chev {
-            width: 14px;
-            height: 14px;
-            transition: transform 240ms ease;
-        }
-
-        /* --- Updated Info Boxes --- */
-        .info-box {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            background: rgba(255, 255, 255, 0.75);
-            padding: 12px 20px;
-            margin: 15px auto;
-            border-radius: 10px;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-            font-size: 0.95rem;
-            width: fit-content;
-            max-width: 100%;
-        }
-
-        .info-icon {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .info-icon svg {
-            width: 32px;
-            height: 32px;
-            color: var(--accent);
-        }
-
-        .info-content {
-            line-height: 1.3;
-        }
-
-        .info-title {
-            font-weight: 700;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            color: var(--muted);
-            margin-bottom: 8px;
-            border-bottom: 1px solid rgba(0,0,0,0.1);
-            padding-bottom: 4px;
-        }
-
-        /* Grid to perfectly align names and numbers */
-        .contacts-grid {
-            display: grid;
-            grid-template-columns: auto auto;
-            column-gap: 24px;
-            row-gap: 10px;
-            align-items: center;
-        }
-
-        .contact-name {
-            display: flex;
-            flex-direction: column;
-            line-height: 1.1;
-        }
-
-        .contact-title {
-            font-size: 0.75rem;
-            color: var(--muted);
-            font-weight: normal;
-            margin-top: 2px;
-        }
-
         /* --- Map Link Styles --- */
         .location-link {
             display: inline-flex;
@@ -392,13 +353,273 @@ h3 {
             height: 16px;
         }
 
-        /* rotate when dropdown is open */
-        .presenter.open .chev {
+        /* ============================================================
+           VENUES
+           ============================================================ */
+        .venue-wrap {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            gap: 18px;
+        }
+
+        .venue-card {
+            background: rgba(255, 255, 255, 0.82);
+            border-radius: 16px;
+            padding: 16px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+        }
+
+        .venue-card h3 {
+            /* keep venue titles readable inside white card -> dark text */
+            color: var(--accent);
+            background: transparent;
+            box-shadow: none;
+            text-shadow: none;
+            padding: 0;
+            margin: 0 0 10px;
+            font-size: 1.15rem;
+        }
+
+        .venue-map {
+            width: 100%;
+            height: 260px;
+            border: 0;
+            border-radius: 12px;
+            display: block;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .venue-card .location-link {
+            margin-top: 12px;
+            font-size: 0.95rem;
+        }
+
+        /* ============================================================
+           MUSIC
+           ============================================================ */
+        .music-wrap {
+            max-width: 640px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.82);
+            border-radius: 16px;
+            padding: 28px 20px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+            text-align: center;
+        }
+
+        .music-intro {
+            color: var(--muted);
+            font-size: 0.95rem;
+            margin-bottom: 22px;
+        }
+
+        .music-icons {
+            display: flex;
+            justify-content: center;
+            gap: 26px;
+            flex-wrap: wrap;
+        }
+
+        .music-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: var(--accent);
+            font-size: 0.8rem;
+            font-weight: 600;
+            transition: transform 200ms ease;
+        }
+
+        .music-link:hover {
+            transform: translateY(-4px);
+        }
+
+        .music-badge {
+            width: 68px;
+            height: 68px;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+        }
+
+        .music-badge svg {
+            width: 40px;
+            height: 40px;
+        }
+
+        .badge-spotify {
+            background: #1DB954;
+        }
+
+        .badge-apple {
+            background: linear-gradient(135deg, #fa233b, #fb5c74);
+        }
+
+        .badge-yt {
+            background: #ff0000;
+        }
+
+        /* ============================================================
+           DRESS CODE
+           ============================================================ */
+        .dress-wrap {
+            max-width: 640px;
+            margin: 0 auto;
+        }
+
+        .dress-item {
+            background: rgba(255, 255, 255, 0.82);
+            border-radius: 14px;
+            margin-bottom: 12px;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .dress-toggle {
+            width: 100%;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 16px 18px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            text-align: left;
+            gap: 10px;
+        }
+
+        .dress-toggle .chev {
+            width: 18px;
+            height: 18px;
+            flex: 0 0 auto;
+            transition: transform 240ms ease;
+        }
+
+        .dress-item.open .chev {
             transform: rotate(180deg);
         }
 
-        .presenter.open .transport-dropdown {
+        .dress-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 300ms ease;
+        }
+
+        .dress-item.open .dress-body {
+            max-height: 240px;
+        }
+
+        .dress-body-inner {
+            padding: 0 18px 16px;
+            color: var(--muted);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .dress-body-inner strong {
+            color: var(--accent);
+        }
+
+        /* --- Hall link (inside agenda h3 pill) --- */
+        .hall-link {
+            color: #fff;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: opacity 0.2s;
+        }
+
+        .hall-link:hover {
+            opacity: 0.85;
+        }
+
+        .hall-link svg {
+            width: 15px;
+            height: 15px;
+            flex: 0 0 auto;
+        }
+
+        /* --- Schematic image (inside venue card) --- */
+        .venue-schematic {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
             display: block;
+            margin-top: 14px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            cursor: zoom-in;
+            background: #fff;
+        }
+
+        /* --- Schematic lightbox modal --- */
+        .schematic-modal {
+            position: fixed;
+            inset: 0;
+            z-index: 999;
+            background: rgba(0, 0, 0, 0.82);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .schematic-modal.open {
+            display: flex;
+            animation: fadeInDay 260ms ease;
+        }
+
+        .schematic-inner {
+            position: relative;
+            max-width: 960px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .schematic-img {
+            max-width: 100%;
+            max-height: 85vh;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+            background: #fff;
+        }
+
+        .schematic-close {
+            position: absolute;
+            top: -14px;
+            right: -14px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: none;
+            background: #fff;
+            color: var(--accent);
+            font-size: 1.4rem;
+            font-weight: 700;
+            line-height: 1;
+            cursor: pointer;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 180ms ease;
+        }
+
+        .schematic-close:hover {
+            transform: scale(1.1);
         }
 
         /* --- Bottom text image (seamless, transparent PNG) --- */
@@ -414,45 +635,43 @@ h3 {
         /* --- Mobile Responsive Fixes --- */
         @media (max-width: 550px) {
             body {
-                padding: 10px 15px; /* Free up edge space on mobile */
+                padding: 10px 15px;
             }
-            .info-box {
-                align-items: flex-start; /* Keep icon at top if text wraps */
-            }
-            .contacts-grid {
-                grid-template-columns: 1fr; /* Stack names and numbers vertically */
-                row-gap: 2px;
-            }
-            .contacts-grid > div:nth-child(3) {
-                margin-top: 10px; /* Space out Katerina from Denys's number */
-            }
+
             .brand-logo {
                 width: 160px;
                 max-width: 70%;
             }
+
             .footer-text-image {
                 width: 260px;
                 max-width: 88%;
             }
+
             .day-tab {
                 padding: 9px 22px;
                 font-size: 0.82rem;
             }
+
+            .music-icons {
+                gap: 18px;
+            }
         }
-        .head-container{
+
+        .head-container {
             display: flex;
             align-items: center;
+            justify-content: center;
         }
-        .footer-text-image{
-            width: 180px;
+
+        .footer-text-image {
+            width: 230px;
             height: auto;
         }
-        .brand-logo{
-            width: 80px;
-            height: 80px;
-        }
-        h3 .location-link {
-            color: #fff;
+
+        .brand-logo {
+            width: 100px;
+            height: 100px;
         }
     </style>
 </head>
@@ -461,265 +680,375 @@ h3 {
     <div class="bg-fixed"></div>
 
     <div class="head-container">
-            <img src="https://raw.githubusercontent.com/IQOS-Bulgaria-files/iqos-files/refs/heads/main/DRIVE-TO-WIN/Text.png" alt="Event tagline" class="footer-text-image" width="1000" height="200">
-    <img src="https://raw.githubusercontent.com/IQOS-Bulgaria-files/iqos-files/refs/heads/main/DRIVE-TO-WIN/logo50.png" alt="Event logo" class="brand-logo" width="600" height="200">
+        <img src="text.png" alt="Event tagline" class="footer-text-image" width="1000" height="200">
+        <img src="logo50.png" alt="Event logo" class="brand-logo" width="600" height="200">
     </div>
     <!-- Top logo -->
 
-    <!-- Day switch buttons -->
-    <div class="day-tabs">
-        <button type="button" class="day-tab tab-1 active" onclick="showDay(1)">Day 1</button>
-        <button type="button" class="day-tab tab-2" onclick="showDay(2)">Day 2</button>
+    <!-- ============================================================
+         HOME MENU
+         ============================================================ -->
+    <div id="home" class="view active">
+        <div class="home-menu">
+            <button type="button" class="menu-btn" onclick="showView('agenda')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <rect x="3" y="4" width="18" height="18" rx="2"></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+                Agenda
+            </button>
+            <button type="button" class="menu-btn" onclick="showView('venues')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                Venues
+            </button>
+            <button type="button" class="menu-btn" onclick="showView('music')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M9 18V5l12-2v13"></path>
+                    <circle cx="6" cy="18" r="3"></circle>
+                    <circle cx="18" cy="16" r="3"></circle>
+                </svg>
+                Music
+            </button>
+            <button type="button" class="menu-btn" onclick="showView('dresscode')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M12 2l4 4-4 3-4-3 4-4z"></path>
+                    <path d="M8 6l-5 4 3 3 2-1v10h8V12l2 1 3-3-5-4"></path>
+                </svg>
+                Dress Code
+            </button>
+        </div>
     </div>
 
-    <div class="agenda-container day-1 active">
-        <!--
-        <div class="info-box">
-            <div class="info-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round" aria-hidden="true">
-                    <path d="M5 12.55a11 11 0 0 1 14.08 0"></path>
-                    <path d="M1.42 9a16 16 0 0 1 21.16 0"></path>
-                    <path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path>
-                    <line x1="12" y1="20" x2="12.01" y2="20"></line>
+    <!-- ============================================================
+         AGENDA
+         ============================================================ -->
+    <div id="agenda" class="view">
+        <div class="section-head">
+            <button type="button" class="back-btn" onclick="showView('home')">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
                 </svg>
-            </div>
-
-            <div class="info-content">
-                <div style="margin-bottom: 4px;"><strong>WiFi:</strong> hotel@ghms</div>
-                <div><strong>Password:</strong> HAPPY2CU</div>
-            </div>
+                Menu
+            </button>
         </div>
 
-        <div class="info-box">
-            <div class="info-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round" aria-hidden="true">
-                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                </svg>
+        <!-- Day switch buttons -->
+        <div class="day-tabs">
+            <button type="button" class="day-tab tab-1 active" onclick="showDay(1)">Day 1</button>
+            <button type="button" class="day-tab tab-2" onclick="showDay(2)">Day 2</button>
+            <button type="button" class="day-tab tab-3" onclick="showDay(3)">Checkout</button>
+        </div>
+
+        <!-- DAY 1 -->
+        <div class="agenda-container day-1 active">
+            <h2>DAY 1</h2>
+            <div class="session">
+                <div class="time">13:00 - 14:00</div>
+                <div class="topic">
+                    <div><b>Arrival, registration, coffee</b><br>Rila Hotel, Borovets</div>
+                </div>
             </div>
 
-            <div class="info-content">
-                <div class="info-title">Contacts</div>
-                <div class="contacts-grid">
-                    <div class="contact-name">
-                        <strong>Denys</strong>
-                    </div>
-                    <div>+359 89 543 1281</div>
+            <h3 class="topH3">DRIVE TO WIN THE FUTURE Conference</h3>
+            <br>
+            <h3><a href="#" class="hall-link" onclick="openSchematic(event)" title="View hotel schematic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>Hall Borovets, fl. 1</a></h3>
+            <div class="session">
+                <div class="time">10:00 – 10:05</div>
+                <div class="topic"><b>Opening</b> <br>
+                </div>
+            </div>
+            <div class="session">
+                <div class="time">10:00 – 10:30</div>
+                <div class="topic"><b>Vision for the PMI Bulgaria</b> <br>
+                </div>
+            </div>
+            <div class="session">
+                <div class="time">10:30 – 11:20</div>
+                <div class="topic"><b>Panel 1</b> <br>
+                </div>
+            </div>
+            <div class="session">
+                <div class="time">11:20 – 12:30</div>
+                <div class="topic"><b>Panel 2</b> <br>
+                </div>
+            </div>
+            <div class="session">
+                <div class="time">12:30 – 13:30</div>
+                <div class="topic"><b>Lunch</b> <br>
+                </div>
+            </div>
+            <div class="session">
+                <div class="time">13:30 – 14:45</div>
+                <div class="topic"><b>Panel 3</b> <br>
+                </div>
+            </div>
+            <div class="session">
+                <div class="time">14:45 – 15:15</div>
+                <div class="topic"><b>Coffee Break</b> <br>
+                </div>
+            </div>
+            <div class="session">
+                <div class="time">15:15 – 16:15</div>
+                <div class="topic"><b>Panel 4</b> <br>
+                </div>
+            </div>
+            <div class="session">
+                <div class="time">16:15 – 16:30</div>
+                <div class="topic"><b>Closing remarks</b> <br>
+                </div>
+            </div>
+            <div class="session">
+                <div class="time">16:30 – 17:00</div>
+                <div class="topic"><b>PICTURE</b> <br>
+                </div>
+            </div>
+            <div class="session">
+                <div class="time">16:30</div>
+                <div class="topic"><b>Free time</b> <br>
+                </div>
+            </div>
 
-                    <div class="contact-name">
-                        <strong>Katerina</strong>
-                        <span class="contact-title">(Exec. Asst.)</span>
-                    </div>
-                    <div> +359 89 679 1345 </div>
+            <h3 class="topH3">OFFICAL DINNER <br>50 YEARS PHILIP MORRIS BULGARIA</h3>
+            <br>
+            <h3><a href="#" class="hall-link" onclick="openSchematic(event)" title="View hotel schematic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>Hall Borovets, fl. 1</a></h3>
+            <div class="session">
+                <div class="time">19:30</div>
+                <div class="topic"><b>Dinner</b></div>
+            </div>
+            <div class="session">
+                <div class="time">20:30</div>
+                <div class="topic"><b>Official Celebration</b>
+                </div>
+            </div>
+            <div class="session">
+                <div class="time">22:00</div>
+                <div class="topic"><b>DJ Party</b>
                 </div>
             </div>
         </div>
-        -->
 
-        <h2>DAY 1</h2>
-        <div class="session">
-            <div class="time">13:00 - 14:00</div>
-            <div class="topic">
-                <div><b>Arrival, registration, coffee</b><br>Rila Hotel, Borovets</div>
-                <a href="https://share.google/hOuSShBmQSlepyo9F" class="location-link" target="_blank" rel="noopener noreferrer">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <!-- DAY 2 -->
+        <div class="agenda-container day-2">
+            <h2>DAY 2</h2>
+            <h3 class="topH3">DRIVE TO WIN THE FUTURE TEAMBUILDING</h3>
+            <h3>A1 Motor Park</h3>
+            <div class="session">
+                <div class="time">10:30 – 11:00</div>
+                <div class="topic"><b>Safety driving instructions</b> <br>
+                </div>
+            </div>
+            <div class="session">
+                <div class="time">11:00 - 13:15</div>
+                <div class="topic"><b>Teambuilding Activities</b> <br>
+                </div>
+            </div>
+            <div class="session">
+                <div class="time">13:20 - 14:20</div>
+                <div class="topic"><b>Lunch</b> <br>
+                </div>
+            </div>
+            <div class="session">
+                <div class="time">14:30 - 15:30</div>
+                <div class="topic"><b>Awards</b> <br>
+                </div>
+            </div>
+            <div class="session">
+                <div class="time">16:00</div>
+                <div class="topic"><b>Back at the hotel / free time</b> <br>
+                </div>
+            </div>
+
+            <h3 class="topH3">PARTY TIME</h3>
+            <div class="session">
+                <div class="time">19:30</div>
+                <div class="topic"><b>Dinner</b> <br>
+                </div>
+            </div>
+            <div class="session">
+                <div class="time">21:30</div>
+                <div class="topic"><b>Karaoke &amp; DJ Party</b> <br>
+                </div>
+            </div>
+        </div>
+
+        <!-- DAY 3 - CHECKOUT -->
+        <div class="agenda-container day-3">
+            <h2>DAY 3</h2>
+            <h3 class="topH3">CHECKOUT</h3>
+            
+            <div class="session">
+                <div class="time">11:00</div>
+                <div class="topic"><b>Checkout</b> <br>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================================
+         VENUES
+         ============================================================ -->
+    <div id="venues" class="view">
+        <div class="section-head">
+            <button type="button" class="back-btn" onclick="showView('home')">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+                Menu
+            </button>
+        </div>
+
+        <div class="venue-wrap">
+            <div class="venue-card">
+                <h3>Rila Hotel — Borovets</h3>
+                <iframe class="venue-map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                    src="https://www.google.com/maps?q=Rila+Hotel+Borovets&output=embed"
+                    title="Rila Hotel Borovets map"></iframe>
+                <a class="location-link" href="https://www.google.com/maps/search/?api=1&query=Rila+Hotel+Borovets"
+                    target="_blank" rel="noopener noreferrer" title="Open Rila Hotel in Google Maps">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                         <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                         <circle cx="12" cy="10" r="3"></circle>
                     </svg>
-                    Location
+                    Open in Google Maps
+                </a>
+                <img src="hotel.png" alt="Rila Hotel floor schematic" class="venue-schematic" onclick="openSchematic(event)">
+            </div>
+
+            <div class="venue-card">
+                <h3>A1 Motor Park</h3>
+                <iframe class="venue-map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                    src="https://www.google.com/maps?q=A1+Motor+Park+Bulgaria&output=embed"
+                    title="A1 Motor Park map"></iframe>
+                <a class="location-link" href="https://www.google.com/maps/search/?api=1&query=A1+Motor+Park+Bulgaria"
+                    target="_blank" rel="noopener noreferrer" title="Open A1 Motor Park in Google Maps">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    Open in Google Maps
                 </a>
             </div>
+        </div>
+    </div>
 
+    <!-- ============================================================
+         MUSIC
+         ============================================================ -->
+    <div id="music" class="view">
+        <div class="section-head">
+            <button type="button" class="back-btn" onclick="showView('home')">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+                Menu
+            </button>
         </div>
 
-        <h3 class="topH3">DRIVE TO WIN THE FUTURE Conference</h3>
-        <br>
-        <h3>Hall Borovets, fl. 1</h3>
-        <div class="session">
-            <div class="time">10:00 – 10:05</div>
-            <div class="topic"><b>Opening</b> <br>
-            </div>
+        <div class="music-wrap">
+            <h3>Event Playlist</h3>
+            <p class="music-intro">Tap your app of choice to open the official playlist.</p>
+            <div class="music-icons">
+                <a class="music-link" href="https://open.spotify.com/playlist/37i9dQZF1EIgtj4OvJCT7Q?si=6V3xZ3GATpSpmxyIfO42SA"
+                    target="_blank" rel="noopener noreferrer" title="Open playlist in Spotify">
+                    <span class="music-badge badge-spotify">
+                        <svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true">
+                            <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm4.59 14.44a.62.62 0 0 1-.86.21c-2.35-1.44-5.3-1.76-8.79-.96a.62.62 0 1 1-.28-1.21c3.81-.87 7.08-.5 9.72 1.11.29.18.39.57.21.85zm1.22-2.72a.78.78 0 0 1-1.07.26c-2.69-1.65-6.79-2.13-9.97-1.17a.78.78 0 1 1-.45-1.49c3.63-1.1 8.15-.56 11.24 1.33.37.23.49.71.25 1.07zm.11-2.84C14.8 8.99 9.4 8.79 6.3 9.73a.94.94 0 1 1-.54-1.8c3.56-1.08 9.53-.87 13.29 1.36a.94.94 0 0 1-.96 1.61z"></path>
+                        </svg>
+                    </span>
+                    Spotify
+                </a>
 
-        </div>
+                <a class="music-link" href="https://music.apple.com/us/playlist/metalcore/pl.ab57cb7e1115469e9fa7d1476511f84b"
+                    target="_blank" rel="noopener noreferrer" title="Open playlist in Apple Music">
+                    <span class="music-badge badge-apple">
+                        <svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true">
+                            <path d="M18.5 3.2c-.2 0-.4 0-.6.06l-8 1.7c-.6.13-1 .66-1 1.28v9.02a3.3 3.3 0 0 0-1.4-.32 3 3 0 1 0 3 3V9.02l6.6-1.4v5.05a3.3 3.3 0 0 0-1.4-.32 3 3 0 1 0 3 3V4.5c0-.78-.66-1.4-1.4-1.3z"></path>
+                        </svg>
+                    </span>
+                    Apple Music
+                </a>
 
-        <div class="session">
-    <div class="time">10:00 – 10:30</div>
-    <div class="topic"><b>Vision for the PMI Bulgaria</b> <br>
-    </div>
-</div>
-<div class="session">
-    <div class="time">10:30 – 11:20</div>
-    <div class="topic"><b>Panel 1</b> <br>
-    </div>
-</div>
-<div class="session">
-    <div class="time">11:20 – 12:30</div>
-    <div class="topic"><b>Panel 2</b> <br>
-    </div>
-</div>
-<div class="session">
-    <div class="time">12:30 – 13:30</div>
-    <div class="topic"><b>Lunch</b> <br>
-    </div>
-</div>
-<div class="session">
-    <div class="time">13:30 – 14:45</div>
-    <div class="topic"><b>Panel 3</b> <br>
-    </div>
-</div>
-<div class="session">
-    <div class="time">14:45 – 15:15</div>
-    <div class="topic"><b>Coffee Break</b> <br>
-    </div>
-</div>
-<div class="session">
-    <div class="time">15:15 – 16:15</div>
-    <div class="topic"><b>Panel 4</b> <br>
-    </div>
-</div>
-<div class="session">
-    <div class="time">16:15 – 16:30</div>
-    <div class="topic"><b>Closing remarks</b> <br>
-    </div>
-</div>
-<div class="session">
-    <div class="time">16:30 – 17:00</div>
-    <div class="topic"><b>PICTURE</b> <br>
-    </div>
-</div>
-<div class="session">
-    <div class="time">17:00</div>
-    <div class="topic"><b>Free time</b> <br>
-    </div>
-</div>
-
-
-        <h3  class="topH3">OFFICAL DINNER  <br>50 YEARS PHILIP MORRIS BULGARIA</h3>
-        <br>
-        <h3>Hall Borovets, fl. 1</h3>
-        <div class="session">
-            <div class="time">19:30</div>
-            <div class="topic"><b>Dinner</b></div>
-
-        </div>
-        <div class="session">
-            <div class="time">20:30</div>
-            <div class="topic"><b>Official Celebration</b>
+                <a class="music-link" href="https://music.youtube.com/playlist?list=RDCLAK5uy_nVT2-bFfxplES7OQSLcnwlJqpsQ9gn0yY&playnext=1&si=NcFw1vLfCEaW5Q1x"
+                    target="_blank" rel="noopener noreferrer" title="Open playlist in YouTube Music">
+                    <span class="music-badge badge-yt">
+                        <svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true">
+                            <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 15.5A5.5 5.5 0 1 1 12 6.5a5.5 5.5 0 0 1 0 11zM10 9.2v5.6l4.8-2.8L10 9.2z"></path>
+                        </svg>
+                    </span>
+                    YT Music
+                </a>
             </div>
         </div>
+    </div>
 
+    <!-- ============================================================
+         DRESS CODE
+         ============================================================ -->
+    <div id="dresscode" class="view">
+        <div class="section-head">
+            <button type="button" class="back-btn" onclick="showView('home')">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+                Menu
+            </button>
+        </div>
 
-        <!--
-        <div class="session">
-            <div class="time">15:00 - 16:00</div>
-            <div class="topic"><b>Airport Transfer</b></div>
-            <div class="presenter">
-                <button class="transport-btn" onclick="toggleTransport(this)">
-                    View transportation
-                    <svg class="chev" viewBox="0 0 24 24">
-                        <path d="M6 9l6 6 6-6" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"
-                            stroke-linejoin="round" />
+        <div class="dress-wrap">
+            <div class="dress-item">
+                <button type="button" class="dress-toggle" onclick="toggleDress(this)">
+                    <span>Day 1 — Conference &amp; Dinner</span>
+                    <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <polyline points="6 9 12 15 18 9"></polyline>
                     </svg>
                 </button>
-
-                <div class="transport-dropdown">
-                    <div class="van">
-                        <strong>Minivan 1</strong>
-                        <ul>
-                            <li>Massimo Andolina</li>
-                            <li>Cengiz Cilengiroglu</li>
-                            <li>Dimitrios Giannopoulos</li>
-                            <li>Denys Strobykin</li>
-                        </ul>
-                    </div>
-
-                    <div class="van">
-                        <strong>Minivan 2</strong>
-                        <ul>
-                            <li>Hozefa Vohra</li>
-                            <li>Donovan Ross</li>
-                            <li>Sevdalina Vasilescu</li>
-                        </ul>
+                <div class="dress-body">
+                    <div class="dress-body-inner">
+                        <strong>Conference</strong>  - Business casual.
+                        <br>
+                        <strong>Dinner</strong>  - Formal.
                     </div>
                 </div>
             </div>
-        </div>
-        -->
 
-        <div class="session">
-            <div class="time">22:00</div>
-            <div class="topic"><b>DJ Party</b>
-            </div>
-        </div>
-
-    </div>
-
-    <div class="agenda-container day-2">
-
-        <h2>DAY 2</h2>
-        <br>
-        <div class="containerH3">
-            <h3 class="topH3">DRIVE TO WIN THE FUTURE TEAMBUILDING
-            </h3>
-            <br>
-            <h3>A1 Motor Park
-                <br>
-                <a href="https://share.google/hOuSShBmQSlepyo9F" class="location-link" target="_blank" rel="noopener noreferrer">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                        <circle cx="12" cy="10" r="3"></circle>
+            <div class="dress-item">
+                <button type="button" class="dress-toggle" onclick="toggleDress(this)">
+                    <span>Day 2 — Team Building & Party</span>
+                    <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <polyline points="6 9 12 15 18 9"></polyline>
                     </svg>
-                    Location
-                </a>
-            </h3>
-            
-        </div>
-        
-        <div class="session">
-    <div class="time">10:30 – 11:00</div>
-    <div class="topic"><b>Safety driving instructions</b> <br>
-    </div>
-    </div>
+                </button>
+                <div class="dress-body">
+                    <div class="dress-body-inner">
+                        <strong>Teambuilding</strong> - Casual.
+                        <br>
+                        <strong>Party</strong> - Up to you.
+                    </div>
+                </div>
+            </div>
 
-    <div class="session">
-        <div class="time">11:00 - 13:15</div>
-        <div class="topic"><b>Teambuilding Activities</b> <br>
-        </div>
-    </div>
-    <div class="session">
-        <div class="time">13:20 - 14:20</div>
-        <div class="topic"><b>Lunch</b> <br>
-        </div>
-    </div>
-    <div class="session">
-        <div class="time">14:30 - 15:30</div>
-        <div class="topic"><b>Awards</b> <br>
-        </div>
-    </div>
-    <div class="session">
-        <div class="time">16:00</div>
-        <div class="topic"><b>Back at the hotel / free time</b> <br>
+           
         </div>
     </div>
 
-    <h3 class="topH3">PARTY TIME</h3>
-    <div class="session">
-        <div class="time">19:30</div>
-        <div class="topic"><b>Dinner</b> <br>
+    <!-- ============================================================
+         SCHEMATIC LIGHTBOX
+         ============================================================ -->
+    <div id="schematic-modal" class="schematic-modal" onclick="closeSchematic(event)">
+        <div class="schematic-inner">
+            <button type="button" class="schematic-close" onclick="closeSchematic(event)" aria-label="Close schematic">&times;</button>
+            <img src="hotel.png" alt="Rila Hotel floor schematic" class="schematic-img">
         </div>
     </div>
-    <div class="session">
-        <div class="time">21:30</div>
-        <div class="topic"><b>Karaoke &amp; DJ Party</b> <br>
-        </div>
-    </div>
-
-    </div>
-
-    <!-- Bottom text image -->
 
     <script>
         // Track maximum viewport height to handle address bar hide/show
@@ -733,19 +1062,18 @@ h3 {
             }
         }
 
-        // Set initial height
         updateMaxHeight();
-
-        // Update on resize events (including address bar changes)
         window.addEventListener('resize', updateMaxHeight);
-
-        // Also check after a short delay (for slower address bar animations)
         setTimeout(updateMaxHeight, 500);
         setTimeout(updateMaxHeight, 1000);
 
-        function toggleTransport(btn) {
-            const presenter = btn.closest('.presenter');
-            presenter.classList.toggle('open');
+        // Switch between top-level views (home / agenda / venues / music / dresscode)
+        function showView(name) {
+            document.querySelectorAll('.view').forEach(function (v) {
+                v.classList.remove('active');
+            });
+            document.getElementById(name).classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
         // Smoothly switch between agenda days
@@ -759,6 +1087,33 @@ h3 {
             document.querySelector('.day-' + day).classList.add('active');
             document.querySelector('.tab-' + day).classList.add('active');
         }
+
+        // Toggle a dress-code dropdown
+        function toggleDress(btn) {
+            btn.closest('.dress-item').classList.toggle('open');
+        }
+
+        // Open the hotel schematic lightbox
+        function openSchematic(event) {
+            if (event) event.preventDefault();
+            document.getElementById('schematic-modal').classList.add('open');
+        }
+
+        // Close the schematic lightbox (backdrop, close button, or the image tap)
+        function closeSchematic(event) {
+            var modal = document.getElementById('schematic-modal');
+            // Only close on backdrop / close button, not when clicking the image itself
+            if (!event || event.target === modal || event.target.classList.contains('schematic-close')) {
+                modal.classList.remove('open');
+            }
+        }
+
+        // Allow Esc to close the schematic
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') {
+                document.getElementById('schematic-modal').classList.remove('open');
+            }
+        });
     </script>
 </body>
 
