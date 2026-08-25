@@ -529,6 +529,90 @@
             color: var(--accent);
         }
 
+         /* ============================================================
+           CONTACTS
+           ============================================================ */
+        .contacts-wrap {
+            max-width: 560px;
+            margin: 0 auto;
+            display: grid;
+            gap: 12px;
+        }
+
+        .contact-card {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            background: rgba(255, 255, 255, 0.82);
+            border-radius: 14px;
+            padding: 16px 18px;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+        }
+
+        .contact-avatar {
+            width: 46px;
+            height: 46px;
+            flex: 0 0 auto;
+            border-radius: 50%;
+            background: var(--accent);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.05rem;
+            letter-spacing: 0.5px;
+        }
+
+        .contact-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .contact-info .c-name {
+            font-weight: 700;
+            color: var(--accent);
+            font-size: 1rem;
+        }
+
+        .contact-info .c-company {
+            font-size: 0.85rem;
+            color: var(--muted);
+            margin-top: 2px;
+        }
+
+        .contact-phone {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
+            color: #2563eb;
+            font-weight: 600;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            transition: opacity 0.2s;
+        }
+
+        .contact-phone:hover {
+            opacity: 0.8;
+        }
+
+        .contact-phone svg {
+            width: 16px;
+            height: 16px;
+            flex: 0 0 auto;
+        }
+
+        @media (max-width: 480px) {
+            .contact-card {
+                flex-wrap: wrap;
+            }
+
+            .contact-phone {
+                width: 100%;
+                margin-top: 4px;
+            }
+        }
         /* --- Hall link (inside agenda h3 pill) --- */
         .hall-link {
             color: #fff;
@@ -721,6 +805,12 @@
                 </svg>
                 Dress Code
             </button>
+            <button type="button" class="menu-btn" onclick="showView('contacts')">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+                Contacts
+            </button>
         </div>
     </div>
 
@@ -749,7 +839,7 @@
         <div class="agenda-container day-1 active">
             <h2>September 9<sup>th</h2>
             <div class="session">
-                <div class="time">09:00 - 10:00</div>
+                <div class="time">13:00 - 14:00</div>
                 <div class="topic">
                     <div><b>Arrival, registration, coffee</b>
                         <a href="https://maps.app.goo.gl/ro3iSWfiRhyn6KZn7" class="location-link" target="_blank" rel="noopener noreferrer">
@@ -772,7 +862,7 @@
                 </div>
             </div>
             <div class="session">
-                <div class="time">10:05 – 10:30</div>
+                <div class="time">10:00 – 10:30</div>
                 <div class="topic"><b>Vision for the PMI Bulgaria</b> <br>
                 </div>
             </div>
@@ -817,7 +907,7 @@
                 </div>
             </div>
             <div class="session">
-                <div class="time">17:00</div>
+                <div class="time">16:30</div>
                 <div class="topic"><b>Free time</b> <br>
                 </div>
             </div>
@@ -963,9 +1053,9 @@
 
         <div class="music-wrap">
             <h3>Event Playlist</h3>
-            <p class="music-intro">Tap your app of choice and <br> Drive To Win The Future.</p>
+            <p class="music-intro">Tap your app of choice to open the official playlist.</p>
             <div class="music-icons">
-                <a class="music-link" href="https://open.spotify.com/playlist/3kntxaVq03v91ZEEOJWd6F?si=0mk4VBJ3RZKXE0_Qp4NEeg"
+                <a class="music-link" href="https://open.spotify.com/playlist/37i9dQZF1EIgtj4OvJCT7Q?si=6V3xZ3GATpSpmxyIfO42SA"
                     target="_blank" rel="noopener noreferrer" title="Open playlist in Spotify">
                     <span class="music-badge badge-spotify">
                         <svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true">
@@ -975,7 +1065,7 @@
                     Spotify
                 </a>
 
-                <a class="music-link" href="https://music.apple.com/bg/playlist/drive-to-win-the-future/pl.u-8aAVoNeiox5boAb"
+                <a class="music-link" href="https://music.apple.com/us/playlist/metalcore/pl.ab57cb7e1115469e9fa7d1476511f84b"
                     target="_blank" rel="noopener noreferrer" title="Open playlist in Apple Music">
                     <span class="music-badge badge-apple">
                         <svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true">
@@ -985,7 +1075,7 @@
                     Apple Music
                 </a>
 
-                <a class="music-link" href="https://music.youtube.com/playlist?list=PLESIdNNxQOKo&si=BQ3FFkUZBvSFBLEx"
+                <a class="music-link" href="https://music.youtube.com/playlist?list=RDCLAK5uy_nVT2-bFfxplES7OQSLcnwlJqpsQ9gn0yY&playnext=1&si=NcFw1vLfCEaW5Q1x"
                     target="_blank" rel="noopener noreferrer" title="Open playlist in YouTube Music">
                     <span class="music-badge badge-yt">
                         <svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true">
@@ -1048,7 +1138,77 @@
            
         </div>
     </div>
+    <!-- ============================================================
+         CONTACTS
+         ============================================================ -->
+    <div id="contacts" class="view">
+        <div class="section-head">
+            <button type="button" class="back-btn" onclick="showView('home')">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+                Menu
+            </button>
+        </div>
 
+        <div class="contacts-wrap">
+            <div class="contact-card">
+                <div class="contact-avatar">ER</div>
+                <div class="contact-info">
+                    <div class="c-name">Elena Rasheva</div>
+                    <div class="c-company">Premier  Tours</div>
+                </div>
+                <a class="contact-phone" href="tel:+359882657975" title="Call Elena Rasheva">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                    </svg>
+                    +359 88 265 7975
+                </a>
+            </div>
+
+            <div class="contact-card">
+                <div class="contact-avatar">DK</div>
+                <div class="contact-info">
+                    <div class="c-name">Desislava Kostova</div>
+                    <div class="c-company">Propaganda Group</div>
+                </div>
+                <a class="contact-phone" href="tel:+359878964002" title="Call Desislava Kostova">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                    </svg>
+                    +359 87 896 4002
+                </a>
+            </div>
+
+            <div class="contact-card">
+                <div class="contact-avatar">PM</div>
+                <div class="contact-info">
+                    <div class="c-name">Petya Mitova</div>
+                    <div class="c-company">Philip Morris Bulgaria</div>
+                </div>
+                <a class="contact-phone" href="tel:+359894379225" title="Call Petya Mitova">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                    </svg>
+                    +359 89 437 9225
+                </a>
+            </div>
+            <div class="contact-card">
+                <div class="contact-avatar">AG</div>
+                <div class="contact-info">
+                    <div class="c-name">Anna Gabrovska</div>
+                    <div class="c-company">Philip Morris Bulgaria</div>
+                </div>
+                <a class="contact-phone" href="tel:+359888220942" title="Call Anna Gabrovska">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                    </svg>
+                    +359 88 822 0942
+                </a>
+            </div>
+        </div>
+    </div>
     <!-- ============================================================
          SCHEMATIC LIGHTBOX
          ============================================================ -->
