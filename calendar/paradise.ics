@@ -1,0 +1,31 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//IQOS Bulgaria//Event//BG
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:iqos-paradise-center-reopening-20261022@bg.iqos.com
+DTSTAMP:20261015T060000Z
+DTSTART:20261022T150000Z
+DTEND:20261022T170000Z
+SUMMARY:Откриване на обновения IQOS Бутик Paradise
+  Center
+DESCRIPTION:Бъди сред първите гости\, които ще 
+ видят обновения дизайн на IQOS бутик в Paradis
+ e Center - ниво 0\, на 22.10.2026 г.\, от 18:00 ч.\nЕла с т
+ вой пълнолетен приятел и сподели прежив
+ яването . 🙂\n🎧 Очакват ви музика\, настр
+ оение и специални изненади.🎁\n📅 Запази 
+ в календара си и не забравяй да доведеш п
+ риятел.
+LOCATION:IQOS Бутик\, Paradise Center - ниво 0\, София
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Откриване на обновения IQOS Бутик Para
+ dise Center
+TRIGGER:-PT2H
+END:VALARM
+END:VEVENT
+END:VCALENDAR
